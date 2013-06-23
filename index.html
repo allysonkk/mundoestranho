@@ -49,7 +49,7 @@ html, body {
 
 <script type="text/javascript">
 
-var rotateAngle = 0;         // To make sure newly-loaded images land on top of images on the table
+var rotateAngle = 0;            // The return for verification
 var imageBeingRotated = false;  // The DOM image currently being rotated (if any)
 var mouseStartAngle = false;    // The angle of the mouse relative to the image centre at the start of the rotation
 var imageStartAngle = false;    // The rotation angle of the image at the start of the rotation
@@ -88,6 +88,11 @@ $(document).ready(function() {
 
     // Remove the event handler that tracked mouse movements during the rotation
     $(document).unbind( 'vmousemove' );
+
+    // Cancel the image rotation by setting imageBeingRotated back to false.
+    // Do this in a short while - after the click event has fired -
+    // to prevent the lightbox appearing once the Shift key is released.
+    setTimeout( function() { imageBeingRotated = false; }, 10 );
     return false;
   });
 
