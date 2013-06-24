@@ -19,11 +19,7 @@ html, body {
 #lighttable {
   position: relative;
   width: 800px;
-  height: 450px;
-  background: #eee url(img/wooden-table.jpg);
-  padding: 70px;
   margin: 0 auto;
-  border: 20px solid #111;
 }
 
 /* Photos on the light table */
@@ -60,8 +56,8 @@ $(document).ready(function() {
   $('#lighttable img').each( function(index) {
 
     // Set a random position and angle for this photo
-    var left = Math.floor( index * 50 + 200 );
-    var top = Math.floor( index * 50 + 20 );
+    var left = Math.floor( index * 50 + 100 );
+    var top = Math.floor( index * 50 + 10 );
     var angle = 0;
     $(this).css( 'left', left+'px' );
     $(this).css( 'top', top+'px' );
@@ -166,9 +162,11 @@ function getImageCentre( image ) {
 <body>
 
   <div id="lighttable">
-    <img src="img/img02.png" alt="Double Propellors" style="z-index:1 !important; border-radius:250px;" />
-    <img src="img/img01.png" alt="Bird Marking" style="z-index:2 !important; border-radius:200px;" />
-    <img src="img/img03.png" alt="Moody Listener Satellite Dish" style="z-index:3 !important; border-radius:150px;" />
+    <img src="img/img01.png" alt="imagem01" style="z-index:1 !important; border-radius:300px;" />
+    <img src="img/img02.png" alt="imagem02" style="z-index:2 !important; border-radius:250px;" />
+    <img src="img/img03.png" alt="imagem03" style="z-index:3 !important; border-radius:200px;" />
+    <img src="img/img04.png" alt="imagem04" style="z-index:4 !important; border-radius:150px;" />
+    <img src="img/img05.png" alt="imagem05" style="z-index:5 !important; border-radius:100px;" />
   </div>
 
 </body>
