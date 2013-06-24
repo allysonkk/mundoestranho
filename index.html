@@ -33,10 +33,6 @@ html, body {
   top: 99px;
 }
 
-#lighttable img:hover {
-  cursor: pointer;
-}
-
 </style>
 
 <script src="js/jquery-2.0.2.min.js"></script>
@@ -58,7 +54,7 @@ $(document).ready(function() {
     // Set a random position and angle for this photo
     var left = Math.floor( index * 50 + 100 );
     var top = Math.floor( index * 50 + 10 );
-    var angle = 0;
+    var angle = 22; //alterar com rand aqui para embaralhar
     $(this).css( 'left', left+'px' );
     $(this).css( 'top', top+'px' );
     $(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
@@ -67,18 +63,94 @@ $(document).ready(function() {
     $(this).css( '-o-transform', 'rotate(' + angle + 'deg)' );
     $(this).data('currentRotation', angle * Math.PI / 180 );
 
-
-    // Make the photo rotatable
-    //$(this).mousedown( startRotate );
-
   });
 
   $('#lighttable img').bind('vmouseup', function(event) {
     // Exit if we're not rotating an image
     if ( !imageBeingRotated ) return;
 
-    if(Math.floor(rotateAngle) > 0 && Math.floor(rotateAngle) <= 1){
-      alert("1");
+    var current_rotation = Math.round($(this).data('currentRotation'));
+
+    if((current_rotation > 0) && (current_rotation <= 1)){
+      $(this).css({
+        'transform': 'rotate(' + 67 + 'deg)',
+        '-moz-transform': 'rotate(' + 67 + 'deg)',
+        '-webkit-transform': 'rotate(' + 67 + 'deg)',
+        '-o-transform': 'rotate(' + 67 + 'deg)'
+      });
+      $(this).data('currentRotation', 67 * Math.PI / 180 );
+    }
+    else if((current_rotation > 1) && (current_rotation <= 2)){
+      $(this).css({
+        'transform': 'rotate(' + 112 + 'deg)',
+        '-moz-transform': 'rotate(' + 112 + 'deg)',
+        '-webkit-transform': 'rotate(' + 112 + 'deg)',
+        '-o-transform': 'rotate(' + 112 + 'deg)'
+      });
+      $(this).data('currentRotation', 112 * Math.PI / 180 );
+    }
+    else if((current_rotation > 2) && (current_rotation <= 3)){
+      $(this).css({
+        'transform': 'rotate(' + 157 + 'deg)',
+        '-moz-transform': 'rotate(' + 157 + 'deg)',
+        '-webkit-transform': 'rotate(' + 157 + 'deg)',
+        '-o-transform': 'rotate(' + 157 + 'deg)'
+      });
+      $(this).data('currentRotation', 157 * Math.PI / 180 );
+    }
+    else if((current_rotation > 3) && (current_rotation <= 4)){
+      $(this).css({
+        'transform': 'rotate(' + 202 + 'deg)',
+        '-moz-transform': 'rotate(' + 202 + 'deg)',
+        '-webkit-transform': 'rotate(' + 202 + 'deg)',
+        '-o-transform': 'rotate(' + 202 + 'deg)'
+      });
+      $(this).data('currentRotation', 202 * Math.PI / 180 );
+    }
+    else if((current_rotation > 4) && (current_rotation <= 5)){
+      $(this).css({
+        'transform': 'rotate(' + 247 + 'deg)',
+        '-moz-transform': 'rotate(' + 247 + 'deg)',
+        '-webkit-transform': 'rotate(' + 247 + 'deg)',
+        '-o-transform': 'rotate(' + 247 + 'deg)'
+      });
+      $(this).data('currentRotation', 247 * Math.PI / 180 );
+    }
+    else if((current_rotation > 5) && (current_rotation <= 6)){
+      $(this).css({
+        'transform': 'rotate(' + 292 + 'deg)',
+        '-moz-transform': 'rotate(' + 292 + 'deg)',
+        '-webkit-transform': 'rotate(' + 292 + 'deg)',
+        '-o-transform': 'rotate(' + 292 + 'deg)'
+      });
+      $(this).data('currentRotation', 292 * Math.PI / 180 );
+    }
+    else if((current_rotation > 6) && (current_rotation <= 7)){
+      $(this).css({
+        'transform': 'rotate(' + 337 + 'deg)',
+        '-moz-transform': 'rotate(' + 337 + 'deg)',
+        '-webkit-transform': 'rotate(' + 337 + 'deg)',
+        '-o-transform': 'rotate(' + 337 + 'deg)'
+      });
+      $(this).data('currentRotation', 337 * Math.PI / 180 );
+    }
+    else if((current_rotation > 7) && (current_rotation <= 8)){
+      $(this).css({
+        'transform': 'rotate(' + 382 + 'deg)',
+        '-moz-transform': 'rotate(' + 382 + 'deg)',
+        '-webkit-transform': 'rotate(' + 382 + 'deg)',
+        '-o-transform': 'rotate(' + 382 + 'deg)'
+      });
+      $(this).data('currentRotation', 382 * Math.PI / 180 );
+    }
+    else {
+      $(this).css({
+        'transform': 'rotate(' + 22 + 'deg)',
+        '-moz-transform': 'rotate(' + 22 + 'deg)',
+        '-webkit-transform': 'rotate(' + 22 + 'deg)',
+        '-o-transform': 'rotate(' + 22 + 'deg)'
+      });
+      $(this).data('currentRotation', 22 * Math.PI / 180 );
     }
 
 
