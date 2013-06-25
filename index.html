@@ -8,29 +8,42 @@
 
 <style type="text/css">
 
-/* The page body */
-html, body {
-  background: #333;
-  overflow: hidden;
-  font-family: Helvetica, Arial, sans-serif;
+.ui-page {
+  background: #000 !important;
 }
 
 /* The light table itself */
 #lighttable {
   position: relative;
-  width: 800px;
+  width: 776px;
   margin: 0 auto;
+  height: 380px;
+  overflow: hidden;
 }
 
 /* Photos on the light table */
 #lighttable img {
-  border: 2px solid #fff;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
-  -moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
-  -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
   position: absolute;
   left: 99px;
   top: 99px;
+  overflow: hidden;
+}
+
+#lighttable a { 
+  height: 75px;
+  width: 776px;
+  display: block;
+  margin-top: 1px;
+  text-indent: -2000px;
+  position: relative;
+}
+
+.centro {
+  background: url(img/triangulo-centro.png) no-repeat;
+  position: absolute;
+  width: 354px;
+  height: 404px;
+  left: 202px;
 }
 
 </style>
@@ -46,15 +59,104 @@ var imageBeingRotated = false;  // The DOM image currently being rotated (if any
 var mouseStartAngle = false;    // The angle of the mouse relative to the image centre at the start of the rotation
 var imageStartAngle = false;    // The rotation angle of the image at the start of the rotation
 
+var img01 = 0;
+var img02 = 0;
+var img03 = 0;
+var img04 = 0;
+var img05 = 0;
+
+function fix_position(elemento, current_rotation){
+    if((current_rotation > 0) && (current_rotation <= 1)){
+      elemento.css({
+        'transform': 'rotate(' + 90 + 'deg)',
+        '-moz-transform': 'rotate(' + 90 + 'deg)',
+        '-webkit-transform': 'rotate(' + 90 + 'deg)',
+        '-o-transform': 'rotate(' + 90 + 'deg)'
+      });
+      elemento.data('currentRotation', 90 * Math.PI / 180 );
+    }
+    else if((current_rotation > 1) && (current_rotation <= 2)){
+      elemento.css({
+        'transform': 'rotate(' + 135 + 'deg)',
+        '-moz-transform': 'rotate(' + 135 + 'deg)',
+        '-webkit-transform': 'rotate(' + 135 + 'deg)',
+        '-o-transform': 'rotate(' + 135 + 'deg)'
+      });
+      elemento.data('currentRotation', 135 * Math.PI / 180 );
+    }
+    else if((current_rotation > 2) && (current_rotation <= 3)){
+      elemento.css({
+        'transform': 'rotate(' + 180 + 'deg)',
+        '-moz-transform': 'rotate(' + 180 + 'deg)',
+        '-webkit-transform': 'rotate(' + 180 + 'deg)',
+        '-o-transform': 'rotate(' + 180 + 'deg)'
+      });
+      elemento.data('currentRotation', 180 * Math.PI / 180 );
+    }
+    else if((current_rotation > 3) && (current_rotation <= 4)){
+      elemento.css({
+        'transform': 'rotate(' + 225 + 'deg)',
+        '-moz-transform': 'rotate(' + 225 + 'deg)',
+        '-webkit-transform': 'rotate(' + 225 + 'deg)',
+        '-o-transform': 'rotate(' + 225 + 'deg)'
+      });
+      elemento.data('currentRotation', 225 * Math.PI / 180 );
+    }
+    else if((current_rotation > 4) && (current_rotation <= 5)){
+      elemento.css({
+        'transform': 'rotate(' + 270 + 'deg)',
+        '-moz-transform': 'rotate(' + 270 + 'deg)',
+        '-webkit-transform': 'rotate(' + 270 + 'deg)',
+        '-o-transform': 'rotate(' + 270 + 'deg)'
+      });
+      elemento.data('currentRotation', 270 * Math.PI / 180 );
+    }
+    else if((current_rotation > 5) && (current_rotation <= 6)){
+      elemento.css({
+        'transform': 'rotate(' + 315 + 'deg)',
+        '-moz-transform': 'rotate(' + 315 + 'deg)',
+        '-webkit-transform': 'rotate(' + 315 + 'deg)',
+        '-o-transform': 'rotate(' + 315 + 'deg)'
+      });
+      elemento.data('currentRotation', 315 * Math.PI / 180 );
+    }
+    else if((current_rotation > 6) && (current_rotation <= 7)){
+      elemento.css({
+        'transform': 'rotate(' + 360 + 'deg)',
+        '-moz-transform': 'rotate(' + 360 + 'deg)',
+        '-webkit-transform': 'rotate(' + 360 + 'deg)',
+        '-o-transform': 'rotate(' + 360 + 'deg)'
+      });
+      elemento.data('currentRotation', 360 * Math.PI / 180 );
+    }
+    else if((current_rotation > 7) && (current_rotation <= 8)){
+      elemento.css({
+        'transform': 'rotate(' + 405 + 'deg)',
+        '-moz-transform': 'rotate(' + 405 + 'deg)',
+        '-webkit-transform': 'rotate(' + 405 + 'deg)',
+        '-o-transform': 'rotate(' + 405 + 'deg)'
+      });
+      elemento.data('currentRotation', 405 * Math.PI / 180 );
+    }
+    else {
+      elemento.css({
+        'transform': 'rotate(' + 45 + 'deg)',
+        '-moz-transform': 'rotate(' + 45 + 'deg)',
+        '-webkit-transform': 'rotate(' + 45 + 'deg)',
+        '-o-transform': 'rotate(' + 45 + 'deg)'
+      });
+      elemento.data('currentRotation', 45 * Math.PI / 180 );
+    }
+  }
 
 $(document).ready(function() {
 
   $('#lighttable img').each( function(index) {
 
     // Set a random position and angle for this photo
-    var left = Math.floor( index * 50 + 100 );
-    var top = Math.floor( index * 50 + 10 );
-    var angle = 22; //alterar com rand aqui para embaralhar
+    var left = Math.floor( index * 76 );
+    var top = Math.floor( index * 76 );
+    var angle = Math.floor((Math.random() * 300) + 120); //alterar com rand aqui para embaralhar
     $(this).css( 'left', left+'px' );
     $(this).css( 'top', top+'px' );
     $(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
@@ -63,96 +165,22 @@ $(document).ready(function() {
     $(this).css( '-o-transform', 'rotate(' + angle + 'deg)' );
     $(this).data('currentRotation', angle * Math.PI / 180 );
 
+    var rotation = angle * Math.PI / 180;
+
+    fix_position($(this), rotation);
+
   });
 
-  $('#lighttable img').bind('vmouseup', function(event) {
+  $('#lighttable a').bind('vclick', function(event) {
     // Exit if we're not rotating an image
     if ( !imageBeingRotated ) return;
 
-    var current_rotation = Math.round($(this).data('currentRotation'));
+    var img = $(this).attr('href');
+    imageRotated = $('#lighttable img').get(img);
 
-    if((current_rotation > 0) && (current_rotation <= 1)){
-      $(this).css({
-        'transform': 'rotate(' + 67 + 'deg)',
-        '-moz-transform': 'rotate(' + 67 + 'deg)',
-        '-webkit-transform': 'rotate(' + 67 + 'deg)',
-        '-o-transform': 'rotate(' + 67 + 'deg)'
-      });
-      $(this).data('currentRotation', 67 * Math.PI / 180 );
-    }
-    else if((current_rotation > 1) && (current_rotation <= 2)){
-      $(this).css({
-        'transform': 'rotate(' + 112 + 'deg)',
-        '-moz-transform': 'rotate(' + 112 + 'deg)',
-        '-webkit-transform': 'rotate(' + 112 + 'deg)',
-        '-o-transform': 'rotate(' + 112 + 'deg)'
-      });
-      $(this).data('currentRotation', 112 * Math.PI / 180 );
-    }
-    else if((current_rotation > 2) && (current_rotation <= 3)){
-      $(this).css({
-        'transform': 'rotate(' + 157 + 'deg)',
-        '-moz-transform': 'rotate(' + 157 + 'deg)',
-        '-webkit-transform': 'rotate(' + 157 + 'deg)',
-        '-o-transform': 'rotate(' + 157 + 'deg)'
-      });
-      $(this).data('currentRotation', 157 * Math.PI / 180 );
-    }
-    else if((current_rotation > 3) && (current_rotation <= 4)){
-      $(this).css({
-        'transform': 'rotate(' + 202 + 'deg)',
-        '-moz-transform': 'rotate(' + 202 + 'deg)',
-        '-webkit-transform': 'rotate(' + 202 + 'deg)',
-        '-o-transform': 'rotate(' + 202 + 'deg)'
-      });
-      $(this).data('currentRotation', 202 * Math.PI / 180 );
-    }
-    else if((current_rotation > 4) && (current_rotation <= 5)){
-      $(this).css({
-        'transform': 'rotate(' + 247 + 'deg)',
-        '-moz-transform': 'rotate(' + 247 + 'deg)',
-        '-webkit-transform': 'rotate(' + 247 + 'deg)',
-        '-o-transform': 'rotate(' + 247 + 'deg)'
-      });
-      $(this).data('currentRotation', 247 * Math.PI / 180 );
-    }
-    else if((current_rotation > 5) && (current_rotation <= 6)){
-      $(this).css({
-        'transform': 'rotate(' + 292 + 'deg)',
-        '-moz-transform': 'rotate(' + 292 + 'deg)',
-        '-webkit-transform': 'rotate(' + 292 + 'deg)',
-        '-o-transform': 'rotate(' + 292 + 'deg)'
-      });
-      $(this).data('currentRotation', 292 * Math.PI / 180 );
-    }
-    else if((current_rotation > 6) && (current_rotation <= 7)){
-      $(this).css({
-        'transform': 'rotate(' + 337 + 'deg)',
-        '-moz-transform': 'rotate(' + 337 + 'deg)',
-        '-webkit-transform': 'rotate(' + 337 + 'deg)',
-        '-o-transform': 'rotate(' + 337 + 'deg)'
-      });
-      $(this).data('currentRotation', 337 * Math.PI / 180 );
-    }
-    else if((current_rotation > 7) && (current_rotation <= 8)){
-      $(this).css({
-        'transform': 'rotate(' + 382 + 'deg)',
-        '-moz-transform': 'rotate(' + 382 + 'deg)',
-        '-webkit-transform': 'rotate(' + 382 + 'deg)',
-        '-o-transform': 'rotate(' + 382 + 'deg)'
-      });
-      $(this).data('currentRotation', 382 * Math.PI / 180 );
-    }
-    else {
-      $(this).css({
-        'transform': 'rotate(' + 22 + 'deg)',
-        '-moz-transform': 'rotate(' + 22 + 'deg)',
-        '-webkit-transform': 'rotate(' + 22 + 'deg)',
-        '-o-transform': 'rotate(' + 22 + 'deg)'
-      });
-      $(this).data('currentRotation', 22 * Math.PI / 180 );
-    }
+    var rotation = Math.round($(imageRotated).data('currentRotation'));
 
+    fix_position($(imageRotated), rotation);
 
     // Remove the event handler that tracked mouse movements during the rotation
     $(document).unbind( 'vmousemove' );
@@ -164,11 +192,12 @@ $(document).ready(function() {
     return false;
   });
 
-  $('#lighttable img').bind('vmousedown', function(event) {
-    
+  $('#lighttable a').bind('vmousedown', function(event) {
     // Track the image that we're going to rotate
-    imageBeingRotated = $(this);
+    var img = $(this).attr('href');
 
+    imageBeingRotated = $('#lighttable img').get(img);
+    
     // Store the angle of the mouse at the start of the rotation, relative to the image centre
     var imageCentre = getImageCentre( imageBeingRotated );
     var mouseStartXFromCentre = event.pageX - imageCentre[0];
@@ -179,8 +208,8 @@ $(document).ready(function() {
     imageStartAngle = $(imageBeingRotated).data('currentRotation');
 
     // Set up an event handler to rotate the image as the mouse is moved
-    $('#lighttable img').bind('vmousemove', function(event) {
-      var imageCentre = getImageCentre( imageBeingRotated );
+    $('#lighttable a').bind('vmousemove', function(event) {
+      //var imageCentre = getImageCentre( imageBeingRotated );
       var mouseXFromCentre = event.pageX - imageCentre[0];
       var mouseYFromCentre = event.pageY - imageCentre[1];
       var mouseAngle = Math.atan2( mouseYFromCentre, mouseXFromCentre );
@@ -198,6 +227,7 @@ $(document).ready(function() {
       return false;
 
     });
+
     return false;
   });
 
@@ -208,10 +238,10 @@ $(document).ready(function() {
 function getImageCentre( image ) {
 
   // Rotate the image to 0 radians
-  $(image).css('transform','rotate(0rad)');
+  /*$(image).css('transform','rotate(0rad)');
   $(image).css('-moz-transform','rotate(0rad)');
   $(image).css('-webkit-transform','rotate(0rad)');
-  $(image).css('-o-transform','rotate(0rad)');
+  $(image).css('-o-transform','rotate(0rad)');*/
 
   // Measure the image centre
   var imageOffset = $(image).offset();
@@ -232,14 +262,18 @@ function getImageCentre( image ) {
 
 </head>
 <body>
-
   <div id="lighttable">
-    <img src="img/img01.png" alt="imagem01" style="z-index:1 !important; border-radius:300px;" />
-    <img src="img/img02.png" alt="imagem02" style="z-index:2 !important; border-radius:250px;" />
-    <img src="img/img03.png" alt="imagem03" style="z-index:3 !important; border-radius:200px;" />
-    <img src="img/img04.png" alt="imagem04" style="z-index:4 !important; border-radius:150px;" />
-    <img src="img/img05.png" alt="imagem05" style="z-index:5 !important; border-radius:100px;" />
+    <img src="img/img01.png" alt="imagem01" />
+    <img src="img/img02.png" alt="imagem02" />
+    <img src="img/img03.png" alt="imagem03" />
+    <img src="img/img04.png" alt="imagem04" />
+    <img src="img/img05.png" alt="imagem05" />
+    <div class="centro"></div>
+    <a href="0">imagem 1</a>
+    <a href="1">imagem 2</a>
+    <a href="2">imagem 3</a>
+    <a href="3">imagem 4</a>
+    <a href="4">imagem 5</a>
   </div>
-
 </body>
 </html>
