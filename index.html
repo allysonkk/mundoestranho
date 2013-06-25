@@ -15,10 +15,24 @@
 /* The light table itself */
 #lighttable {
   position: relative;
-  width: 776px;
+  width: 885px;
   margin: 0 auto;
-  height: 380px;
+  height: 450px;
   overflow: hidden;
+}
+
+.descricao {
+  background: url(img/titulo-e-descricao.jpg) no-repeat;
+  width: 880px;
+  height: 111px;
+  margin: 20px auto;
+}
+
+.borda-superior {
+  background: url(img/borda-superior.png) no-repeat;
+  margin: 0 auto -36px auto;
+  height: 58px;
+  width: 356px;
 }
 
 /* Photos on the light table */
@@ -30,29 +44,34 @@
 }
 
 #lighttable a { 
-  height: 75px;
-  width: 300px;
+  height: 94px;
   display: block;
-  margin-top: 1px;
-  margin-left:230px;
+  margin:1px auto 0 auto;
   text-indent: -2000px;
   position: relative;
 }
 
+.click01 { width: 390px; }
+.click02 { width: 244px; left: -8px; }
+.click03 { width: 209px; left: -3px; top: -12px; }
+.click04 { width: 128px; left: -4px; top: -19px; }
+.click05 { width: 155px; left: 0px; top: -23px; }
+
 .centro {
   background: url(img/triangulo-centro.png) no-repeat;
   position: absolute;
-  width: 300px;
-  height: 404px;
-  left: 230px;
+  width: 354px;
+  left: 264px;
+  height: 450px;
 }
 
 .mascara {
   background: url(img/mascara.png) no-repeat;
   position: absolute;
-  width: 860px;
-  height: 380px;
-  left:-50px;
+  width: 910px;
+  height: 425px;
+  left: -12px;
+  top: 26px;
 }
 
 </style>
@@ -73,7 +92,7 @@ var validacao = new Array();
 function fix_position(elemento, current_rotation){
     var num = Math.round(current_rotation * 10) / 10;
     var elemento_index = elemento.index();
-    if((num > 0) && (num <= 1)){
+    if((num > 0.5) && (num <= 1.5)){
       elemento.css({
         'transform': 'rotate(' + 90 + 'deg)',
         '-moz-transform': 'rotate(' + 90 + 'deg)',
@@ -83,7 +102,7 @@ function fix_position(elemento, current_rotation){
       elemento.data('currentRotation', 90 * Math.PI / 180 );
       validacao[elemento_index] = 2;
     }
-    else if((num > 1) && (num <= 2)){
+    else if((num > 1.5) && (num <= 2.5)){
       elemento.css({
         'transform': 'rotate(' + 135 + 'deg)',
         '-moz-transform': 'rotate(' + 135 + 'deg)',
@@ -93,7 +112,7 @@ function fix_position(elemento, current_rotation){
       elemento.data('currentRotation', 135 * Math.PI / 180 );
       validacao[elemento_index] = 3;
     }
-    else if((num > 2) && (num <= 3)){
+    else if((num > 2.5) && (num <= 3.5)){
       elemento.css({
         'transform': 'rotate(' + 180 + 'deg)',
         '-moz-transform': 'rotate(' + 180 + 'deg)',
@@ -103,7 +122,7 @@ function fix_position(elemento, current_rotation){
       elemento.data('currentRotation', 180 * Math.PI / 180 );
       validacao[elemento_index] = 4;
     }
-    else if((num > 3) && (num <= 4)){
+    else if((num > 3.5) && (num <= 4.3)){
       elemento.css({
         'transform': 'rotate(' + 225 + 'deg)',
         '-moz-transform': 'rotate(' + 225 + 'deg)',
@@ -113,7 +132,7 @@ function fix_position(elemento, current_rotation){
       elemento.data('currentRotation', 225 * Math.PI / 180 );
       validacao[elemento_index] = 5;
     }
-    else if((num > 4) && (num <= 5)){
+    else if((num > 4.3) && (num <= 5.1)){
       elemento.css({
         'transform': 'rotate(' + 270 + 'deg)',
         '-moz-transform': 'rotate(' + 270 + 'deg)',
@@ -123,7 +142,7 @@ function fix_position(elemento, current_rotation){
       elemento.data('currentRotation', 270 * Math.PI / 180 );
       validacao[elemento_index] = 6;
     }
-    else if((num > 5) && (num <= 6)){
+    else if((num > 5.1) && (num <= 5.8)){
       elemento.css({
         'transform': 'rotate(' + 315 + 'deg)',
         '-moz-transform': 'rotate(' + 315 + 'deg)',
@@ -133,7 +152,7 @@ function fix_position(elemento, current_rotation){
       elemento.data('currentRotation', 315 * Math.PI / 180 );
       validacao[elemento_index] = 7;
     }
-    else if((num > 6) && (num <= 7)){
+    else if((num > 5.8) && (num <= 6.6)){
       elemento.css({
         'transform': 'rotate(' + 360 + 'deg)',
         '-moz-transform': 'rotate(' + 360 + 'deg)',
@@ -143,7 +162,7 @@ function fix_position(elemento, current_rotation){
       elemento.data('currentRotation', 360 * Math.PI / 180 );
       validacao[elemento_index] = 8;
     }
-    else if((num > 7) && (num <= 8)){
+    else if((num > 6.6) && (num <= 7.4)){
       elemento.css({
         'transform': 'rotate(' + 405 + 'deg)',
         '-moz-transform': 'rotate(' + 405 + 'deg)',
@@ -170,11 +189,11 @@ $(document).ready(function() {
   $('#lighttable img').each( function(index) {
 
     // Set a random position and angle for this photo
-    var left = Math.floor( index * 76 );
-    var top = Math.floor( index * 76 );
-    var angle = Math.floor((Math.random() * 300) + 120); //alterar com rand aqui para embaralhar
-    $(this).css( 'left', left+'px' );
-    $(this).css( 'top', top+'px' );
+    //var left = Math.floor( index * 88 - 2 );
+    //var top = Math.floor( index * 88 );
+    var angle = 0;//Math.floor((Math.random() * 300) + 120); //alterar com rand aqui para embaralhar
+    //$(this).css( 'left', left+'px' );
+    //$(this).css( 'top', top+'px' );
     $(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
     $(this).css( '-moz-transform', 'rotate(' + angle + 'deg)' );   
     $(this).css( '-webkit-transform', 'rotate(' + angle + 'deg)' );
@@ -187,11 +206,11 @@ $(document).ready(function() {
 
   });
 
-  $('#lighttable a').bind('vclick', function(event) {
+  $('#lighttable a').bind('vmouseup', function(event) {
     // Exit if we're not rotating an image
     if ( !imageBeingRotated ) return;
 
-    var img = $(this).attr('href');
+    var img = $(this).html();
     imageRotated = $('#lighttable img').get(img);
 
     var rotation = $(imageRotated).data('currentRotation');
@@ -200,17 +219,14 @@ $(document).ready(function() {
 
     // Remove the event handler that tracked mouse movements during the rotation
     $(document).unbind( 'vmousemove' );
+    imageBeingRotated = false;
 
-    // Cancel the image rotation by setting imageBeingRotated back to false.
-    // Do this in a short while - after the click event has fired -
-    // to prevent the lightbox appearing once the Shift key is released.
-    setTimeout( function() { imageBeingRotated = false; }, 10 );
     return false;
   });
 
   $('#lighttable a').bind('vmousedown', function(event) {
     // Track the image that we're going to rotate
-    var img = $(this).attr('href');
+    var img = $(this).html();
 
     imageBeingRotated = $('#lighttable img').get(img);
     
@@ -278,19 +294,22 @@ function getImageCentre( image ) {
 
 </head>
 <body>
+  <div class="descricao"></div>
+  <div class="borda-superior"></div>
   <div id="lighttable">
-    <img src="img/img01.png" alt="imagem01" />
-    <img src="img/img02.png" alt="imagem02" />
-    <img src="img/img03.png" alt="imagem03" />
-    <img src="img/img04.png" alt="imagem04" />
-    <img src="img/img05.png" alt="imagem05" />
+    <div class="embaralhar"></div>
+    <img src="img/img01.png" alt="imagem01" width="886px" style="top:4px; left:0" />
+    <img src="img/img02.png" alt="imagem02" width="713px" style="top:90px; left:86px;" />
+    <img src="img/img03.png" alt="imagem03" width="534px" style="top:179px; left:176px;" />
+    <img src="img/img04.png" alt="imagem04" width="356px" style="top:268px; left:265px;" />
+    <img src="img/img05.png" alt="imagem05" width="178px" style="top:356px; left:354px;" />
     <div class="centro"></div>
     <div class="mascara"></div>
-    <a href="0">imagem 1</a>
-    <a href="1">imagem 2</a>
-    <a href="2">imagem 3</a>
-    <a href="3">imagem 4</a>
-    <a href="4">imagem 5</a>
+    <a href="#" class="click01">0</a>
+    <a href="#" class="click02">1</a>
+    <a href="#" class="click03">2</a>
+    <a href="#" class="click04">3</a>
+    <a href="#" class="click05">4</a>
   </div>
 </body>
 </html>
