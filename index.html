@@ -272,7 +272,8 @@ function fix_position(elemento, current_rotation){
   function txt_link(pos){
 
     $('.texto li').css('display', 'none');
-    $('.texto li:eq('+pos+')').css('display', 'block');
+    //$('.texto li:eq('+pos+')').css('display', 'block');
+    $('.historia'+pos).css('display', 'block');
 
   }
 
@@ -405,14 +406,14 @@ function getImageCentre( image ) {
       <li><a href="javascript: txt_link('7'); return false;" class="polinesia">Polinésia</a></li>
     </ul>
     <ul class="texto">
-      <li><img src="img/txt-asteca.jpg" /></li>
-      <li><img src="img/txt-egipcia.jpg" /></li>
-      <li><img src="img/txt-guarani.jpg" /></li>
-      <li><img src="img/txt-nordica.jpg" /></li>
-      <li><img src="img/txt-chinesa.jpg" /></li>
-      <li><img src="img/txt-grega.jpg" /></li>
-      <li><img src="img/txt-japonesa.jpg" /></li>
-      <li><img src="img/txt-polinesia.jpg" /></li>
+      <li class="historia0"><img src="img/txt-asteca.jpg" /></li>
+      <li class="historia1"><img src="img/txt-egipcia.jpg" /></li>
+      <li class="historia2"><img src="img/txt-guarani.jpg" /></li>
+      <li class="historia3"><img src="img/txt-nordica.jpg" /></li>
+      <li class="historia4"><img src="img/txt-chinesa.jpg" /></li>
+      <li class="historia5"><img src="img/txt-grega.jpg" /></li>
+      <li class="historia6"><img src="img/txt-japonesa.jpg" /></li>
+      <li class="historia7"><img src="img/txt-polinesia.jpg" /></li>
     </ul>
   </div>
   <div class="borda-superior"></div>
