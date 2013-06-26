@@ -29,6 +29,8 @@ ul { list-style: none; }
   width: 880px;
   height: 111px;
   margin: 20px auto;
+  position: relative;
+  z-index: 30
 }
 
 .links {
@@ -89,6 +91,15 @@ ul { list-style: none; }
 
 .links li a.polinesia:hover {
   background-position: -294px -50px;
+}
+
+.texto {
+  margin: 0 auto;
+  width: 625px;
+}
+
+.texto li {
+  display: none;
 }
 
 .borda-superior {
@@ -258,7 +269,18 @@ function fix_position(elemento, current_rotation){
     }
   }
 
+  function txt_link(pos){
+
+    $('.texto li').css('display', 'none');
+    $('.texto li:eq('+pos+')').css('display', 'block');
+
+  }
+
 $(document).ready(function() {
+
+  $('.texto li').bind('vclick', function(event) {
+    $('.texto li').css('display', 'none');
+  });
 
   $('.embaralhar').bind('vclick', function(event) {
     embaralha();
@@ -373,24 +395,24 @@ function getImageCentre( image ) {
 <body>
   <div class="descricao">
     <ul class="links">
-      <li><a href="#" class="asteca">Asteca</a></li>
-      <li><a href="#" class="egipcia">Egípcia</a></li>
-      <li><a href="#" class="guarani">Guarani</a></li>
-      <li><a href="#" class="nordica">Nórdica</a></li>
-      <li><a href="#" class="chinesa">Chinesa</a></li>
-      <li><a href="#" class="grega">Grega</a></li>
-      <li><a href="#" class="japonesa">Japonesa</a></li>
-      <li><a href="#" class="polinesia">Polinésia</a></li>
+      <li><a href="javascript: txt_link('0'); return false;" class="asteca">Asteca</a></li>
+      <li><a href="javascript: txt_link('1'); return false;" class="egipcia">Egípcia</a></li>
+      <li><a href="javascript: txt_link('2'); return false;" class="guarani">Guarani</a></li>
+      <li><a href="javascript: txt_link('3'); return false;" class="nordica">Nórdica</a></li>
+      <li><a href="javascript: txt_link('4'); return false;" class="chinesa">Chinesa</a></li>
+      <li><a href="javascript: txt_link('5'); return false;" class="grega">Grega</a></li>
+      <li><a href="javascript: txt_link('6'); return false;" class="japonesa">Japonesa</a></li>
+      <li><a href="javascript: txt_link('7'); return false;" class="polinesia">Polinésia</a></li>
     </ul>
     <ul class="texto">
-      <li><p></p></li>
-      <li><p></p></li>
-      <li><p></p></li>
-      <li><p></p></li>
-      <li><p></p></li>
-      <li><p></p></li>
-      <li><p></p></li>
-      <li><p></p></li>
+      <li><img src="img/txt-asteca.jpg" /></li>
+      <li><img src="img/txt-egipcia.jpg" /></li>
+      <li><img src="img/txt-guarani.jpg" /></li>
+      <li><img src="img/txt-nordica.jpg" /></li>
+      <li><img src="img/txt-chinesa.jpg" /></li>
+      <li><img src="img/txt-grega.jpg" /></li>
+      <li><img src="img/txt-japonesa.jpg" /></li>
+      <li><img src="img/txt-polinesia.jpg" /></li>
     </ul>
   </div>
   <div class="borda-superior"></div>
