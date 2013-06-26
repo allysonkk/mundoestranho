@@ -269,15 +269,15 @@ function fix_position(elemento, current_rotation){
     }
   }
 
-  function txt_link(pos){
-
-    $('.texto li').css('display', 'none');
-    //$('.texto li:eq('+pos+')').css('display', 'block');
-    $('.historia'+pos).css('display', 'block');
-
-  }
-
 $(document).ready(function() {
+
+  $('.links li').bind('vclick', function(event) {
+    $('.texto li').css('display', 'none');
+    //$('.texto li:eq('+$(this).index()+')').css('display', 'block');
+    $('.historia'+$(this).index()).css('display', 'block');
+    return false;
+  });
+
 
   $('.texto li').bind('vclick', function(event) {
     $('.texto li').css('display', 'none');
@@ -396,14 +396,14 @@ function getImageCentre( image ) {
 <body>
   <div class="descricao">
     <ul class="links">
-      <li><a href="javascript: txt_link('0'); return false;" class="asteca">Asteca</a></li>
-      <li><a href="javascript: txt_link('1'); return false;" class="egipcia">Egípcia</a></li>
-      <li><a href="javascript: txt_link('2'); return false;" class="guarani">Guarani</a></li>
-      <li><a href="javascript: txt_link('3'); return false;" class="nordica">Nórdica</a></li>
-      <li><a href="javascript: txt_link('4'); return false;" class="chinesa">Chinesa</a></li>
-      <li><a href="javascript: txt_link('5'); return false;" class="grega">Grega</a></li>
-      <li><a href="javascript: txt_link('6'); return false;" class="japonesa">Japonesa</a></li>
-      <li><a href="javascript: txt_link('7'); return false;" class="polinesia">Polinésia</a></li>
+      <li><a href="#" class="asteca">Asteca</a></li>
+      <li><a href="#" class="egipcia">Egípcia</a></li>
+      <li><a href="#" class="guarani">Guarani</a></li>
+      <li><a href="#" class="nordica">Nórdica</a></li>
+      <li><a href="#" class="chinesa">Chinesa</a></li>
+      <li><a href="#" class="grega">Grega</a></li>
+      <li><a href="#" class="japonesa">Japonesa</a></li>
+      <li><a href="#" class="polinesia">Polinésia</a></li>
     </ul>
     <ul class="texto">
       <li class="historia0"><img src="img/txt-asteca.jpg" /></li>
