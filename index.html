@@ -191,9 +191,9 @@ var solucaoF = new Array(5, 1, 6, 2, 6); //new Array(3, 7, 2, 6, 2);
 var solucaoG = new Array(6, 8, 7, 3, 1); //new Array(2, 8, 1, 5, 7);
 var solucaoH = new Array(2, 7, 1, 4, 7); //new Array(6, 1, 7, 4, 1);
 
-function fix_position(elemento, current_rotation){
+function fix_position(elemento, current_rotation, indice){
   var num = Math.round(current_rotation * 10) / 10;
-  var elemento_index = elemento.index() - 1;
+  var elemento_index = indice;
   if((num > 0.5) && (num <= 1.5)){
     elemento.css({
       'transform': 'rotate(' + 90 + 'deg)',
@@ -320,7 +320,7 @@ $(document).ready(function() {
 
       var rotation = angle * Math.PI / 180;
 
-      fix_position($(this), rotation);
+      fix_position($(this), rotation, index);
 
     });
   }
@@ -337,7 +337,7 @@ $(document).ready(function() {
 
     var rotation = $(imageRotated).data('currentRotation');
 
-    fix_position($(imageRotated), rotation);
+    fix_position($(imageRotated), rotation, img);
 
     // Remove the event handler that tracked mouse movements during the rotation
     $(document).unbind( 'vmousemove' );
