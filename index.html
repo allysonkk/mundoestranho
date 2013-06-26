@@ -32,7 +32,7 @@
   background: url(img/borda-superior.png) no-repeat;
   margin: 0 auto -36px auto;
   height: 58px;
-  width: 356px;
+  width: 354px;
 }
 
 /* Photos on the light table */
@@ -57,11 +57,22 @@
 .click04 { width: 128px; left: -4px; top: -19px; }
 .click05 { width: 155px; left: 0px; top: -23px; }
 
+.embaralhar {
+  background: url(img/botao-embaralhar.png) no-repeat;
+  position: absolute;
+  right: 0px;
+  width: 120px;
+  height: 120px;
+  display: block;
+  z-index: 10;
+  cursor: pointer;
+}
+
 .centro {
   background: url(img/triangulo-centro.png) no-repeat;
   position: absolute;
   width: 354px;
-  left: 264px;
+  left: 266px;
   height: 450px;
 }
 
@@ -70,7 +81,7 @@
   position: absolute;
   width: 910px;
   height: 425px;
-  left: -12px;
+  left: -10px;
   top: 26px;
 }
 
@@ -186,25 +197,28 @@ function fix_position(elemento, current_rotation){
 
 $(document).ready(function() {
 
-  $('#lighttable img').each( function(index) {
-
-    // Set a random position and angle for this photo
-    //var left = Math.floor( index * 88 - 2 );
-    //var top = Math.floor( index * 88 );
-    var angle = 0;//Math.floor((Math.random() * 300) + 120); //alterar com rand aqui para embaralhar
-    //$(this).css( 'left', left+'px' );
-    //$(this).css( 'top', top+'px' );
-    $(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
-    $(this).css( '-moz-transform', 'rotate(' + angle + 'deg)' );   
-    $(this).css( '-webkit-transform', 'rotate(' + angle + 'deg)' );
-    $(this).css( '-o-transform', 'rotate(' + angle + 'deg)' );
-    $(this).data('currentRotation', angle * Math.PI / 180 );
-
-    var rotation = angle * Math.PI / 180;
-
-    fix_position($(this), rotation);
-
+  $('.embaralhar').bind('vclick', function(event) {
+    embaralha();
   });
+
+  function embaralha(){
+    $('#lighttable img').each( function(index) {
+
+      var angle = Math.floor((Math.random() * 300) + 120); //alterar com rand aqui para embaralhar
+      $(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
+      $(this).css( '-moz-transform', 'rotate(' + angle + 'deg)' );   
+      $(this).css( '-webkit-transform', 'rotate(' + angle + 'deg)' );
+      $(this).css( '-o-transform', 'rotate(' + angle + 'deg)' );
+      $(this).data('currentRotation', angle * Math.PI / 180 );
+
+      var rotation = angle * Math.PI / 180;
+
+      fix_position($(this), rotation);
+
+    });
+  }
+
+  embaralha();
 
   $('#lighttable a').bind('vmouseup', function(event) {
     // Exit if we're not rotating an image
