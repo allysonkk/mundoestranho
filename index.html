@@ -18,16 +18,23 @@ ul { list-style: none; }
 #lighttable {
   background: url(img/folhas.png) no-repeat center 50px;
   position: relative;
-  width: 885px;
+  width: 906px;
   margin: 0 auto;
-  height: 450px;
+  height: 454px;
   overflow: hidden;
+}
+
+.borda {
+  background: url(img/borda.png) no-repeat;
+  width: 906px;
+  height: 460px;
+  position: absolute;
 }
 
 .descricao {
   background: url(img/titulo-e-descricao.jpg) no-repeat 115px 11px;
   width: 880px;
-  height: 111px;
+  height: 100px;
   margin: 20px auto;
   position: relative;
   z-index: 30
@@ -118,18 +125,19 @@ ul { list-style: none; }
 }
 
 #lighttable a { 
-  height: 94px;
+  top: 9px;
+  height: 89px;
   display: block;
-  margin:1px auto 0 auto;
+  margin: 0 auto;
   text-indent: -2000px;
   position: relative;
 }
 
 .click01 { width: 390px; }
 .click02 { width: 244px; left: -8px; }
-.click03 { width: 209px; left: -3px; top: -12px; }
-.click04 { width: 128px; left: -4px; top: -19px; }
-.click05 { width: 155px; left: 0px; top: -23px; }
+.click03 { width: 209px; left: -3px; }
+.click04 { width: 128px; left: -4px; }
+.click05 { width: 155px; left: 0px; }
 
 .embaralhar {
   background: url(img/botao-embaralhar.png) no-repeat;
@@ -146,8 +154,9 @@ ul { list-style: none; }
   background: url(img/triangulo-centro.png) no-repeat;
   position: absolute;
   width: 354px;
-  left: 266px;
+  left: 275px;
   height: 450px;
+  top: 4px;
 }
 
 .mascara {
@@ -155,8 +164,8 @@ ul { list-style: none; }
   position: absolute;
   width: 910px;
   height: 425px;
-  left: -10px;
-  top: 26px;
+  left: 0px;
+  top: 36px;
 }
 
 </style>
@@ -323,6 +332,7 @@ $(document).ready(function() {
     if ( !imageBeingRotated ) return;
 
     var img = $(this).html();
+
     imageRotated = $('#lighttable img').get(img);
 
     var rotation = $(imageRotated).data('currentRotation');
@@ -333,6 +343,9 @@ $(document).ready(function() {
     $(document).unbind( 'vmousemove' );
     imageBeingRotated = false;
 
+    audio_stop(img);
+    audio(5);
+
     return false;
   });
 
@@ -341,6 +354,8 @@ $(document).ready(function() {
     var img = $(this).html();
 
     imageBeingRotated = $('#lighttable img').get(img);
+
+    audio(img);
     
     // Store the angle of the mouse at the start of the rotation, relative to the image centre
     var imageCentre = getImageCentre( imageBeingRotated );
@@ -354,6 +369,7 @@ $(document).ready(function() {
     // Set up an event handler to rotate the image as the mouse is moved
     $('#lighttable a').bind('vmousemove', function(event) {
       //var imageCentre = getImageCentre( imageBeingRotated );
+
       var mouseXFromCentre = event.pageX - imageCentre[0];
       var mouseYFromCentre = event.pageY - imageCentre[1];
       var mouseAngle = Math.atan2( mouseYFromCentre, mouseXFromCentre );
@@ -429,6 +445,16 @@ function solucao(){
   }
 }
 
+function audio(song){
+  var myAudio = document.getElementsByTagName('audio')[song];
+  myAudio.play();
+}
+
+function audio_stop(song){
+  var myAudio = document.getElementsByTagName('audio')[song];
+  myAudio.pause();
+}
+
 // Calculate the centre point of a given image
 
 function getImageCentre( image ) {
@@ -458,6 +484,13 @@ function getImageCentre( image ) {
 
 </head>
 <body>
+  <audio><source src="audio/rodela-1.wav" type="audio/wav" /></audio>
+  <audio><source src="audio/rodela-2.wav" type="audio/wav" /></audio>
+  <audio><source src="audio/rodela-3.wav" type="audio/wav" /></audio>
+  <audio><source src="audio/rodela-4.wav" type="audio/wav" /></audio>
+  <audio><source src="audio/rodela-5.wav" type="audio/wav" /></audio>
+  <audio><source src="audio/acerto.wav" type="audio/wav" /></audio>
+
   <div class="descricao">
     <ul class="links">
       <li><a href="#" class="asteca">Asteca</a></li>
@@ -493,11 +526,12 @@ function getImageCentre( image ) {
   <div class="borda-superior"></div>
   <div id="lighttable">
     <div class="embaralhar"></div>
-    <img src="img/rodela-5.png" alt="imagem01" style="top:4px; left:0" />
-    <img src="img/rodela-4.png" alt="imagem02" style="top:90px; left:86px;" />
-    <img src="img/rodela-3.png" alt="imagem03" style="top:178px; left:176px;" />
-    <img src="img/rodela-2.png" alt="imagem04" style="top:266px; left:265px;" />
-    <img src="img/rodela-1.png" alt="imagem05" style="top:355px; left:354px;" />
+    <div class="borda"></div>
+    <img src="img/rodela-5.png" alt="imagem01" style="top:6px; left:7px;" />
+    <img src="img/rodela-4.png" alt="imagem02" style="top:95px; left:95px;" />
+    <img src="img/rodela-3.png" alt="imagem03" style="top:183px; left:184px;" />
+    <img src="img/rodela-2.png" alt="imagem04" style="top:271px; left:273px;" />
+    <img src="img/rodela-1.png" alt="imagem05" style="top:361px; left:363px;" />
     <div class="centro"></div>
     <div class="mascara"></div>
     <a href="#" class="click01">0</a>
