@@ -25,7 +25,7 @@ ul { list-style: none; }
 }
 
 .descricao {
-  /*background: url(img/titulo-e-descricao.jpg) no-repeat;*/
+  background: url(img/titulo-e-descricao.jpg) no-repeat 115px 11px;
   width: 880px;
   height: 111px;
   margin: 20px auto;
@@ -159,6 +159,14 @@ ul { list-style: none; }
   top: 26px;
 }
 
+.solucao {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+}
+
+.solucao ul li { display: none; }
+
 </style>
 
 <script src="js/jquery-2.0.2.min.js"></script>
@@ -287,6 +295,9 @@ $(document).ready(function() {
     return false;
   });
 
+  $('.solucao li').bind('vclick', function(event) {
+    $('.solucao li').css('display', 'none');
+  });
 
   $('.texto li').bind('vclick', function(event) {
     $('.texto li').css('display', 'none');
@@ -401,28 +412,28 @@ Array.prototype.compare = function (array) {
 
 function solucao(){
   if (validacao.compare(solucaoA)){
-    alert("A");
+    $('.solucao0').css('display', 'block');
   }
   else if(validacao.compare(solucaoB)){
-    alert("B");
+    $('.solucao1').css('display', 'block');
   }
   else if(validacao.compare(solucaoC)){
-    alert("C");
+    $('.solucao2').css('display', 'block');
   }
   else if(validacao.compare(solucaoD)){
-    alert("D");
+    $('.solucao3').css('display', 'block');
   }
   else if(validacao.compare(solucaoE)){
-    alert("E");
+    $('.solucao4').css('display', 'block');
   }
   else if(validacao.compare(solucaoF)){
-    alert("F");
+    $('.solucao5').css('display', 'block');
   }
   else if(validacao.compare(solucaoG)){
-    alert("G");
+    $('.solucao6').css('display', 'block');
   }
   else if(validacao.compare(solucaoH)){
-    alert("H");
+    $('.solucao7').css('display', 'block');
   }
 }
 
@@ -492,6 +503,18 @@ function getImageCentre( image ) {
     <a href="#" class="click03">2</a>
     <a href="#" class="click04">3</a>
     <a href="#" class="click05">4</a>
+  </div>
+  <div class="solucao">
+    <ul>
+      <li class="solucao0"><img src="img/mapa-nordico.jpg" /></li>
+      <li class="solucao1"><img src="img/mapa-nordico.jpg" /></li>
+      <li class="solucao2"><img src="img/mapa-nordico.jpg" /></li>
+      <li class="solucao3"><img src="img/mapa-nordico.jpg" /></li>
+      <li class="solucao4"><img src="img/mapa-nordico.jpg" /></li>
+      <li class="solucao5"><img src="img/mapa-nordico.jpg" /></li>
+      <li class="solucao6"><img src="img/mapa-nordico.jpg" /></li>
+      <li class="solucao7"><img src="img/mapa-nordico.jpg" /></li>
+    </ul>
   </div>
 </body>
 </html>
