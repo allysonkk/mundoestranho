@@ -138,11 +138,15 @@ $(document).ready(function() {
     $('.texto li').css('display', 'none').animate({ "opacity": 0 }, 500);
   });
 
-  $('.embaralhar').click(function() {
-    audio(0);
-    embaralha();
-    return false; 
-  });
+
+  // Bind the tapHandler callback function to the tap event on div.box
+    $( ".embaralhar" ).on( 'tap', tapHandler );
+
+    // Callback function references the event target and adds the 'tap' class to it
+    function tapHandler( event ) {
+      audio(0);
+      embaralha();
+    }
 
 
   function embaralha(){
