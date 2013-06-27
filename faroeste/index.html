@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="SUPERINTERESSANTE">
+<title>Mitos e verdades do Velho Oeste</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<audio><source src="audio/engatilhar.mp3" type="audio/mp3" /></audio>
+<audio><source src="audio/game_over.mp3" type="audio/mp3" /></audio>
+<audio><source src="audio/the_end.mp3" type="audio/mp3" /></audio>
+<audio><source src="audio/tiro_jogador.mp3" type="audio/mp3" /></audio>
+<audio><source src="audio/tiro_pistoleiro.mp3" type="audio/mp3" /></audio>
+<audio><source src="audio/tiro_raspao.mp3" type="audio/mp3" /></audio>
+<div id="stage">
+	<div id="abre"></div>
+	<div id="cartas">
+    	<div id="bala1" class="balas"></div>
+    	<div id="bala2" class="balas"></div>
+    	<div id="bala3" class="balas"></div>
+    	<div id="content"></div>
+    </div>
+    <div id="sangrento">
+        <p id="continuar"></p>
+    </div>
+    <div id="sucesso">
+    	<a href="javascript:reiniciar();" class="recomecar"></a>
+    </div>
+    <div id="falha">
+    	<a href="javascript:reiniciar();" class="recomecar"></a>
+    </div>
+	<ul id="questoes">
+    	<li id="pergunta"></li>
+        <li id="alternativas">
+        	<a href="javascript:selecionaResposta('mito');" id="mito"></a>
+            <a href="javascript:selecionaResposta('verdade');" id="verdade"></a>
+        </li>
+    </ul>
+    <ul id="respostas">
+    	<li id="resp1"></li>
+    	<li id="resp2"></li>
+    	<li id="resp3"></li>
+    	<li id="resp4"></li>
+    	<li id="resp5"></li>
+    	<li id="resp6"></li>
+    	<li id="resp7"></li>
+    </ul>
+    <ul id="ferimentos">
+    	<li id="tiro1" class="ferimentos"></li>
+    	<li id="tiro2" class="ferimentos"></li>
+    	<li id="tiro3" class="ferimentos"></li>
+    	<li id="tiro4" class="ferimentos"></li>
+    	<li id="tiro5" class="ferimentos"></li>
+    	<li id="tiro6" class="ferimentos"></li>
+    	<li id="tiro7" class="ferimentos"></li>
+    </ul>
+    <div id="personagens">
+    	<div id="tiro"></div>
+        <img src="img/transp.png" alt="" border="0" usemap="#Personagens">
+        <map name="Personagens">
+          <area shape="poly" coords="5,426,3,445,3,456,10,457,19,518,34,525,45,502,59,502,77,461,56,447,54,429,44,427,45,413,34,413,27,442,20,428" href="#" alt="knight">
+          <area shape="poly" coords="63,467,65,494,52,509,54,526,44,554,4,615,8,617,22,602,40,574,56,569,61,594,70,613,74,630,66,642,79,643,94,638,109,645,109,621,109,593,108,565,120,550,135,532,120,508,112,497,91,493,91,473,78,464" href="#" alt="henchman">
+          <area shape="poly" coords="148,449,137,465,131,483,126,546,161,551,194,542,190,479,178,453" href="#" alt="woman">
+          <area shape="poly" coords="196,459,185,472,196,476,202,496,239,496,272,494,277,478,270,472,268,452,239,436" href="#" alt="cart">
+          <area shape="poly" coords="224,495,205,508,197,547,178,554,175,578,148,587,109,613,108,643,116,671,268,671,290,614,295,586,308,537,271,509,248,496" href="#" alt="indio">
+          <area shape="poly" coords="663,420,629,428,607,452,610,483,618,505,639,530,652,532,678,486,676,446,681,427" href="#" alt="rowdies">
+          <area shape="circle" coords="688,568,34" href="#" alt="hay">
+          <area shape="poly" coords="762,433,723,444,717,454,715,521,719,542,778,541,771,471,771,436" href="#" alt="ladies">
+          <area shape="poly" coords="813,503,790,501,775,515,767,556,745,538,708,525,712,534,751,579,737,611,730,672,887,675,872,602,837,571,829,520" href="#" alt="archer">
+          <area shape="poly" coords="1011,457,1005,443,980,436,964,443,960,468,941,464,933,483,918,499,891,493,849,482,840,498,854,514,866,531,885,539,881,553,892,559,890,572,895,576,898,585,905,592,909,608,911,660,923,662,924,675,1023,677,1024,457" href="#" alt="cowboy">
+          <area shape="rect" coords="122,415,148,450" href="#" alt="poster">
+          <area shape="poly" coords="895,493,886,464,884,448,882,435,872,432,872,424,859,424,822,429,818,440,808,461,817,495,840,493,846,483,858,483" href="#" alt="duel">
+          <area shape="rect" coords="36,381,146,405" href="#" alt="saloon">
+          <area shape="rect" coords="617,291,756,327" href="#" alt="bank">
+        </map>
+        <div id="pistoleiro"></div>
+    </div>
+</div>
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/functions.js"></script>
+</body>
+</html>

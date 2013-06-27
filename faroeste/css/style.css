@@ -1,0 +1,47 @@
+@charset "utf-8";
+*{margin:0;padding:0;border:none;}
+body{background:#f14000;}
+li{list-style:none;}
+audio{display:none;}
+#stage{width:1024px;height:665px;overflow:hidden;margin:0 auto;background:url("../img/scene.jpg") no-repeat;position:relative;}
+#cartas{padding:10px;position:absolute;top:0;left:0;}
+#cartas #content{background:url("../img/cartas.png") no-repeat;width:195px;height:88px;position:relative;z-index:99;}
+#cartas .balas{background:url("../img/tiro_cartas.png");width:48px;height:37px;position:absolute;z-index:100;display:none;}
+#cartas #bala1{top:30px;left:15px;}
+#cartas #bala2{top:30px;left:78px;}
+#cartas #bala3{top:30px;left:144px;}
+#sangrento{width:1024px;height:420px;background:url("../img/sangue_mensagem.png") no-repeat;padding-top:245px;position:absolute;top:0;left:0;z-index:12;display:none;}
+#continuar{width:227px;height:47px;margin-left:397px;cursor:pointer;}
+#sucesso,#falha{width:1024px;height:665px;z-index:9999;display:none;}
+#sucesso{background:url("../img/parabens.png") no-repeat;padding-top:280px;text-align:center;}
+#sucesso .recomecar{cursor:pointer;width:239px;height:59px;display:inline-block;background:url("../img/bt_jogar-novamente.png") no-repeat;margin:0 auto;}
+#falha{background:url("../img/nao_foi_dessa_vez.png") no-repeat;padding-top:287px;}
+#falha .recomecar{cursor:pointer;width:232px;height:55px;margin-left:388px;display:inline-block;}
+#questoes{width:1024px;height:565px;background:url("../img/quadro_mensagem.png") no-repeat;z-index:4;position:relative;padding-top:100px;display:none;}
+#pergunta{width:560px;height:105px;margin:0 auto;}
+#alternativas{width:480px;height:55px;margin:28px auto;}
+#mito{margin-right:16px;}
+#mito,#verdade{width:232px;height:52px;float:left;cursor:pointer;display:inline-block;}
+#respostas{width:1024px;height:145px;position:absolute;top:112px;left:0;z-index:3;}
+#respostas li{float:left;height:145px;background-image:url("../img/respostas.png");background-repeat:no-repeat;visibility:hidden;}
+#resp1{width:126px;background-position:15px 0;}
+#resp2{width:131px;background-position:-111px 0;}
+#resp3{width:125px;background-position:-242px 0;}
+#resp4{width:161px;background-position:-367px 0;}
+#resp5{width:161px;background-position:-528px 0;}
+#resp6{width:171px;background-position:-689px 0;}
+#resp7{width:149px;background-position:-860px 0;}
+#ferimentos{width:272px;height:237px;position:absolute;bottom:0;left:383px;}
+#ferimentos .ferimentos{background-image:url("../img/tiros.png");background-repeat:no-repeat;position:absolute;display:none;z-index:8;}
+#tiro1{width:65px;height:72px;background-position:-149px -42px;top:44px;left:152px;}
+#tiro2{width:61px;height:66px;background-position:-125px -174px;top:170px;left:126px;}
+#tiro3{width:62px;height:48px;background-position:-32px -192px;top:190px;left:33px;}
+#tiro4{width:65px;height:69px;background-position:-4px -3px;top:11px;left:9px;}
+#tiro5{width:63px;height:72px;background-position:-41px -121px;top:121px;left:41px;}
+#tiro6{width:60px;height:75px;background-position:-197px -153px;top:153px;left:197px;}
+#tiro7{width:56px;height:73px;background-position:-96px -84px;top:84px;left:96px;}
+#personagens{position:relative;}
+#tiro{width:200px;height:93px;background:url("../img/tiro.png") no-repeat;position:absolute;bottom:238px;left:109px;display:none;}
+#poster{border:solid 1px #000;}
+#pistoleiro{width:464px;height:358px;background:url("../img/pistoleiro.png") no-repeat;position:absolute;bottom:-2px;left:234px;display:none;z-index:4;}
+#abre{width:560px;height:105px;background:url("../img/open.png") no-repeat;position:absolute;top:130px;left:222px;}
