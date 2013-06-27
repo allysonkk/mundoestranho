@@ -1,0 +1,175 @@
+ul { list-style: none; }
+
+.ui-page {
+  background: #000 !important;
+}
+
+/* The light table itself */
+#lighttable {
+  background: url(../img/folhas.png) no-repeat center 50px;
+  position: relative;
+  width: 906px;
+  margin: 0 auto;
+  height: 450px;
+  overflow: hidden;
+}
+
+.borda {
+  background: url(../img/borda.png) no-repeat;
+  width: 906px;
+  height: 460px;
+  position: absolute;
+}
+
+.descricao {
+  background: url(../img/titulo-e-descricao.jpg) no-repeat 115px 11px;
+  width: 880px;
+  height: 100px;
+  margin: 20px auto;
+  position: relative;
+  z-index: 30;
+  margin-top: 0;
+}
+
+.links {
+  background: url(../img/menu-de-mitos.png) no-repeat;
+  height: 85px;
+  float: right;
+  width: 392px;
+  padding: 21px 0 0 0;
+  margin-right: 130px;
+}
+
+.links li { 
+  float: left;
+  width: 95px;
+  margin-right: 3px;
+  height: 27px;
+  margin-bottom: 2px;
+}
+
+.links li a {
+  width: 95px;
+  height: 27px;
+  text-indent: -2000px;
+  display: block;
+}
+
+.links li a:hover {
+  background: url(../img/menu-de-mitos-over.png) no-repeat;
+}
+
+.links li a.asteca:hover {
+  background-position: 0 -21px;
+}
+
+.links li a.egipcia:hover {
+  background-position: -98px -21px;
+}
+
+.links li a.guarani:hover {
+  background-position: -196px -21px;
+}
+
+.links li a.nordica:hover {
+  background-position: -294px -21px;
+}
+
+.links li a.chinesa:hover {
+  background-position: 0 -50px;
+}
+
+.links li a.grega:hover {
+  background-position: -98px -50px;
+}
+
+.links li a.japonesa:hover {
+  background-position: -196px -50px;
+}
+
+.links li a.polinesia:hover {
+  background-position: -294px -50px;
+}
+
+.texto, .solucao {
+  margin: 0 auto;
+  width: 625px;
+}
+
+.texto li, .solucao li {
+  display: none;
+}
+
+.borda-superior {
+  background: url(../img/borda-superior.png) no-repeat;
+  margin: 0 auto -36px auto;
+  height: 58px;
+  width: 374px;
+}
+
+/* Photos on the light table */
+#lighttable img {
+  position: absolute;
+  left: 99px;
+  top: 99px;
+  overflow: hidden;
+}
+
+#lighttable a { 
+  top: 5px;
+  height: 89px;
+  display: block;
+  margin: 0 auto;
+  text-indent: -2000px;
+  position: relative;
+}
+
+.click01 { width: 390px; }
+.click02 { width: 244px; left: -8px; }
+.click03 { width: 180px; left: -10px; }
+.click04 { width: 120px; left: -8px; }
+.click05 { width: 130px; left: -8px; }
+
+.embaralhar {
+  background: url(../img/botao-embaralhar.png) no-repeat;
+  position: absolute;
+  right: 0px;
+  width: 120px;
+  height: 120px;
+  display: block;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.centro {
+  background: url(../img/triangulo-centro.png) no-repeat;
+  position: absolute;
+  width: 354px;
+  left: 268px;
+  height: 450px;
+  top: 0px;
+}
+
+.mascara {
+  background: url(../img/mascara.png) no-repeat;
+  position: absolute;
+  width: 910px;
+  height: 425px;
+  left: 0px;
+  top: 36px;
+}
+
+.mostra_certo {
+  position: absolute;
+  top: 12px;
+  width: 50px;
+  height: 400px;
+  left: 436px;
+}
+
+.mostra_certo span {
+  float: left;
+  width: 30px;
+  margin-top: 58px;
+  display: none;
+}
