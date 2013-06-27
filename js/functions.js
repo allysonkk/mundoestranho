@@ -140,7 +140,8 @@ $(document).ready(function() {
   });
 
   $('.embaralhar').bind('click', function() {
-    audio(0);
+    //audio(0);
+    $('.mantem span').css('opacity', '1');
     embaralha();
     return false; 
   });
