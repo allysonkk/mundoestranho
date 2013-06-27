@@ -5,7 +5,7 @@ function audio(song){
   myAudio.play();
 }
 
-$('a.embaralhar').click(function() {
+$('.embaralhar').click(function() {
   audio(5);
   return false; 
 });
