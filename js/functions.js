@@ -131,8 +131,8 @@ $(document).ready(function() {
 
   $('.solucao li').bind('click', function(event) {
     $('.solucao li').css('display', 'none').animate({ "opacity": 0 }, 500);
-    $('.mantem span').css('opacity', '1');
-    embaralha();
+    //$('.mantem span').css('opacity', '1');
+    //embaralha();
   });
 
   $('.texto li').bind('click', function(event) {
