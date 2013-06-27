@@ -122,6 +122,13 @@ function fix_position(elemento, current_rotation, indice){
 
 $(document).ready(function() {
 
+  $('body').append('<audio><source src="audio/rodela-1.mp3" type="audio/mp3" /></audio>');
+  $('body').append('<audio><source src="audio/rodela-2.mp3" type="audio/mp3" /></audio>');
+  $('body').append('<audio><source src="audio/rodela-3.mp3" type="audio/mp3" /></audio>');
+  $('body').append('<audio><source src="audio/rodela-4.mp3" type="audio/mp3" /></audio>');
+  $('body').append('<audio><source src="audio/rodela-5.mp3" type="audio/mp3" /></audio>');
+  $('body').append('<audio><source src="audio/acerto.mp3" type="audio/mp3" /></audio>'); 
+
   $('.links li').bind('click', function(event) {
     $('.texto li').css('display', 'none');
     //$('.texto li:eq('+$(this).index()+')').css('display', 'block');
