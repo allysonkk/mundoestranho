@@ -153,8 +153,11 @@ $(document).ready(function() {
   });
 
   $('.embaralhar').bind('vclick', function(event) {
-    audio(5);
     embaralha();
+  });
+
+  $('.embaralhar').click(function(){
+     audio(5);
   });
 
   function embaralha(){
