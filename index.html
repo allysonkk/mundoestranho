@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 
 <title>Smooth Rotatable Images with CSS3 and jQuery | Demo | Elated.com</title>
@@ -195,7 +195,7 @@ var solucaoH = new Array(2, 7, 1, 4, 7); //new Array(6, 1, 7, 4, 1);
 function fix_position(elemento, current_rotation, indice){
   var num = Math.round(current_rotation * 10) / 10;
   var elemento_index = indice;
-  if((num > 0.5) && (num <= 1.5)){
+  if((num > 1.1) && (num <= 1.9)){
     elemento.css({
       'transform': 'rotate(' + 90 + 'deg)',
       '-moz-transform': 'rotate(' + 90 + 'deg)',
@@ -205,7 +205,7 @@ function fix_position(elemento, current_rotation, indice){
     elemento.data('currentRotation', 90 * Math.PI / 180 );
     validacao[elemento_index] = 1;
   }
-  else if((num > 1.5) && (num <= 2.5)){
+  else if((num > 1.9) && (num <= 2.7)){
     elemento.css({
       'transform': 'rotate(' + 135 + 'deg)',
       '-moz-transform': 'rotate(' + 135 + 'deg)',
@@ -215,7 +215,7 @@ function fix_position(elemento, current_rotation, indice){
     elemento.data('currentRotation', 135 * Math.PI / 180 );
     validacao[elemento_index] = 2;
   }
-  else if((num > 2.5) && (num <= 3.5)){
+  else if((num > 2.7) && (num <= 3.5)){
     elemento.css({
       'transform': 'rotate(' + 180 + 'deg)',
       '-moz-transform': 'rotate(' + 180 + 'deg)',
@@ -276,14 +276,25 @@ function fix_position(elemento, current_rotation, indice){
     validacao[elemento_index] = 8;
   }
   else {
-    elemento.css({
-      'transform': 'rotate(' + 90 + 'deg)',
-      '-moz-transform': 'rotate(' + 90 + 'deg)',
-      '-webkit-transform': 'rotate(' + 90 + 'deg)',
-      '-o-transform': 'rotate(' + 90 + 'deg)'
-    });
-    elemento.data('currentRotation', 90 * Math.PI / 180 );
-    validacao[elemento_index] = 1;
+    if (validacao[elemento_index] == 1) {
+      elemento.css({
+        'transform': 'rotate(' + 405 + 'deg)',
+        '-moz-transform': 'rotate(' + 405 + 'deg)',
+        '-webkit-transform': 'rotate(' + 405 + 'deg)',
+        '-o-transform': 'rotate(' + 405 + 'deg)'
+      });
+      elemento.data('currentRotation', 405 * Math.PI / 180 );
+      validacao[elemento_index] = 8;
+    } else {
+      elemento.css({
+        'transform': 'rotate(' + 90 + 'deg)',
+        '-moz-transform': 'rotate(' + 90 + 'deg)',
+        '-webkit-transform': 'rotate(' + 90 + 'deg)',
+        '-o-transform': 'rotate(' + 90 + 'deg)'
+      });
+      elemento.data('currentRotation', 90 * Math.PI / 180 );
+      validacao[elemento_index] = 1;
+    }
   }
   solucao();
 }
