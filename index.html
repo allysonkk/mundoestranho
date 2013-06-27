@@ -153,6 +153,9 @@ $(document).ready(function() {
     $('.texto li').css('display', 'none').animate({ "opacity": 0 }, 500);
   });
 
+  $('.embaralhar').bind('vclick', function(event) {
+    embaralha();
+  });
 
   $('.embaralhar').click(function(){
      audio(0);
