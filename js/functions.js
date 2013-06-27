@@ -302,7 +302,7 @@ function mostra_certo(){
 
   var som_acerto = 0;
 
-  $('.mantem span').css('opacity', '1');
+  //$('.mantem span').css('opacity', '1');
 
   for(i=0; i<=4; i++){
     if (validacao[i] == solucaoA[i]){
@@ -367,105 +367,120 @@ function mostra_certo(){
   }
 
   if((count2 > count1) && (count2 > count3) && (count2 > count4) && (count2 > count5) && (count2 > count6) && (count2 > count7) && (count2 > count8)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoB[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoB[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   if((count3 > count1) && (count3 > count2) && (count3 > count4) && (count3 > count5) && (count3 > count6) && (count3 > count7) && (count3 > count8)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoC[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoC[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   if((count4 > count1) && (count4 > count2) && (count4 > count3) && (count4 > count5) && (count4 > count6) && (count4 > count7) && (count4 > count8)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoD[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoD[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   if((count5 > count1) && (count5 > count2) && (count5 > count3) && (count5 > count4) && (count5 > count6) && (count5 > count7) && (count5 > count8)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoE[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoE[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   if((count6 > count1) && (count6 > count2) && (count6 > count3) && (count6 > count4) && (count6 > count5) && (count6 > count7) && (count6 > count8)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoF[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoF[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   if((count7 > count1) && (count7 > count2) && (count7 > count3) && (count7 > count4) && (count7 > count5) && (count7 > count6) && (count7 > count8)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoG[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoG[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   if((count8 > count1) && (count8 > count2) && (count8 > count3) && (count8 > count4) && (count8 > count5) && (count8 > count6) && (count8 > count7)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoH[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoH[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   if(som_acerto > 0) {
     audio(5);
+    som_acerto = 0;
   }
 }
 
