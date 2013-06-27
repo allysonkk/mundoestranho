@@ -6,7 +6,7 @@
 <title>Smooth Rotatable Images with CSS3 and jQuery | Demo | Elated.com</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 
-<script src="js/jquery-2.0.2.min.js"></script>
+<script src="js/jquery-1.9.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.mobile-1.3.1.min.js"></script>
 <link type="text/css" media="screen" rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
 <link type="text/css" media="screen" rel="stylesheet" href="css/style.css" />
@@ -158,6 +158,7 @@ $(document).ready(function() {
 
   $('.embaralhar').click(function(){
      audio(5);
+     console.log("audio");
   });
 
   function embaralha(){
@@ -316,6 +317,7 @@ function mostra_certo(){
 
 function audio(song){
   var myAudio = document.getElementsByTagName('audio')[song];
+  console.log(myAudio);
   myAudio.play();
 }
 
