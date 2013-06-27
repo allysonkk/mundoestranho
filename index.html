@@ -146,6 +146,7 @@ $(document).ready(function() {
 
   $('.solucao li').bind('vclick', function(event) {
     $('.solucao li').css('display', 'none').animate({ "opacity": 0 }, 500);
+    embaralha();
   });
 
   $('.texto li').bind('vclick', function(event) {
