@@ -180,7 +180,8 @@ $(document).ready(function() {
 
   embaralha();
 
-  $('#lighttable a').bind('vmouseup', function(event) {
+  $( document ).on( "vmouseup", "#lighttable a", function(event) {
+  //$('#lighttable a').bind('vmouseup', function(event) {
     // Exit if we're not rotating an image
     if ( !imageBeingRotated ) return;
 
@@ -203,7 +204,8 @@ $(document).ready(function() {
     return false;
   });
 
-  $('#lighttable a').bind('vmousedown', function(event) {
+  $( document ).on( "vmousedown", "#lighttable a", function(event) {
+  //$('#lighttable a').bind('vmousedown', function(event) {
     // Track the image that we're going to rotate
     var img = $(this).html();
 
@@ -311,7 +313,7 @@ function mostra_certo(){
       if (validacao[i] == solucaoA[i]){
         $('.mostra_certo span').eq(i).css('opacity', '1').animate({
           "opacity": 0
-        }, 500);
+        }, 300);
       }
     }
   }
