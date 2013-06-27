@@ -292,14 +292,66 @@ function solucao(){
 }
 
 function mostra_certo(){
-  var count = 0;
+  var count1 = 0;
+  var count2 = 0;
+  var count3 = 0;
+  var count4 = 0;
+  var count5 = 0;
+  var count6 = 0;
+  var count7 = 0;
+  var count8 = 0;
+
   $('.mantem span').css('opacity', '1');
+
   for(i=0; i<=4; i++){
     if (validacao[i] == solucaoA[i]){
-      count++;
+      count1++;
     }
   }
-  if(count > 1){
+
+  for(i=0; i<=4; i++){
+    if (validacao[i] == solucaoB[i]){
+      count2++;
+    }
+  }
+
+  for(i=0; i<=4; i++){
+    if (validacao[i] == solucaoC[i]){
+      count3++;
+    }
+  }
+
+  for(i=0; i<=4; i++){
+    if (validacao[i] == solucaoD[i]){
+      count4++;
+    }
+  }
+
+  for(i=0; i<=4; i++){
+    if (validacao[i] == solucaoE[i]){
+      count5++;
+    }
+  }
+
+  for(i=0; i<=4; i++){
+    if (validacao[i] == solucaoF[i]){
+      count6++;
+    }
+  }
+
+  for(i=0; i<=4; i++){
+    if (validacao[i] == solucaoG[i]){
+      count7++;
+    }
+  }
+
+  for(i=0; i<=4; i++){
+    if (validacao[i] == solucaoH[i]){
+      count8++;
+    }
+  }
+
+  if((count1 > count2) && (count1 > count3) && (count1 > count4) && (count1 > count5) && (count1 > count6) && (count1 > count7) && (count1 > count8)) {
     for(i=0; i<=4; i++){
       if (validacao[i] == solucaoA[i]){
         $('.mostra_certo span').eq(i).css('opacity', '1').animate({
@@ -310,137 +362,95 @@ function mostra_certo(){
         }, 300);
       }
     }
-  } else {
-    count = 0;
+  }
+
+  if((count2 > count1) && (count2 > count3) && (count2 > count4) && (count2 > count5) && (count2 > count6) && (count2 > count7) && (count2 > count8)) {
     for(i=0; i<=4; i++){
       if (validacao[i] == solucaoB[i]){
-        count++;
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 300);
+        $('.mantem span').eq(i).css('opacity', '0').animate({
+          "opacity": 0
+        }, 300);
       }
     }
-    if(count > 1){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoB[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
-        }
+  }
+
+  if((count3 > count1) && (count3 > count2) && (count3 > count4) && (count3 > count5) && (count3 > count6) && (count3 > count7) && (count3 > count8)) {
+    for(i=0; i<=4; i++){
+      if (validacao[i] == solucaoC[i]){
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 300);
+        $('.mantem span').eq(i).css('opacity', '0').animate({
+          "opacity": 0
+        }, 300);
       }
-    } else {
-      count = 0;
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoC[i]){
-          count++;
-        }
+    }
+  }
+
+  if((count4 > count1) && (count4 > count2) && (count4 > count3) && (count4 > count5) && (count4 > count6) && (count4 > count7) && (count4 > count8)) {
+    for(i=0; i<=4; i++){
+      if (validacao[i] == solucaoD[i]){
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 300);
+        $('.mantem span').eq(i).css('opacity', '0').animate({
+          "opacity": 0
+        }, 300);
       }
-      if(count > 1){
-        for(i=0; i<=4; i++){
-          if (validacao[i] == solucaoC[i]){
-            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-              "opacity": 0
-            }, 300);
-            $('.mantem span').eq(i).css('opacity', '0').animate({
-              "opacity": 0
-            }, 300);
-          }
-        }
-      } else {
-        count = 0;
-        for(i=0; i<=4; i++){
-          if (validacao[i] == solucaoD[i]){
-            count++;
-          }
-        }
-        if(count > 1){
-          for(i=0; i<=4; i++){
-            if (validacao[i] == solucaoD[i]){
-              $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-                "opacity": 0
-              }, 300);
-              $('.mantem span').eq(i).css('opacity', '0').animate({
-                "opacity": 0
-              }, 300);
-            }
-          }
-        } else {
-          count = 0;
-          for(i=0; i<=4; i++){
-            if (validacao[i] == solucaoE[i]){
-              count++;
-            }
-          }
-          if(count > 1){
-            for(i=0; i<=4; i++){
-              if (validacao[i] == solucaoE[i]){
-                $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-                  "opacity": 0
-                }, 300);
-                $('.mantem span').eq(i).css('opacity', '0').animate({
-                  "opacity": 0
-                }, 300);
-              }
-            }
-          } else {
-            count = 0;
-            for(i=0; i<=4; i++){
-              if (validacao[i] == solucaoF[i]){
-                count++;
-              }
-            }
-            if(count > 1){
-              for(i=0; i<=4; i++){
-                if (validacao[i] == solucaoF[i]){
-                  $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-                    "opacity": 0
-                  }, 300);
-                  $('.mantem span').eq(i).css('opacity', '0').animate({
-                    "opacity": 0
-                  }, 300);
-                }
-              }
-            } else {
-              count = 0;
-              for(i=0; i<=4; i++){
-                if (validacao[i] == solucaoG[i]){
-                  count++;
-                }
-              }
-              if(count > 1){
-                for(i=0; i<=4; i++){
-                  if (validacao[i] == solucaoG[i]){
-                    $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-                      "opacity": 0
-                    }, 300);
-                    $('.mantem span').eq(i).css('opacity', '0').animate({
-                      "opacity": 0
-                    }, 300);
-                  }
-                }
-              } else {
-                count = 0;
-                for(i=0; i<=4; i++){
-                  if (validacao[i] == solucaoH[i]){
-                    count++;
-                  }
-                }
-                if(count > 1){
-                  for(i=0; i<=4; i++){
-                    if (validacao[i] == solucaoH[i]){
-                      $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-                        "opacity": 0
-                      }, 300);
-                      $('.mantem span').eq(i).css('opacity', '0').animate({
-                        "opacity": 0
-                      }, 300);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+    }
+  }
+
+  if((count5 > count1) && (count5 > count2) && (count5 > count3) && (count5 > count4) && (count5 > count6) && (count5 > count7) && (count5 > count8)) {
+    for(i=0; i<=4; i++){
+      if (validacao[i] == solucaoE[i]){
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 300);
+        $('.mantem span').eq(i).css('opacity', '0').animate({
+          "opacity": 0
+        }, 300);
+      }
+    }
+  }
+
+  if((count6 > count1) && (count6 > count2) && (count6 > count3) && (count6 > count4) && (count6 > count5) && (count6 > count7) && (count6 > count8)) {
+    for(i=0; i<=4; i++){
+      if (validacao[i] == solucaoF[i]){
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 300);
+        $('.mantem span').eq(i).css('opacity', '0').animate({
+          "opacity": 0
+        }, 300);
+      }
+    }
+  }
+
+  if((count7 > count1) && (count7 > count2) && (count7 > count3) && (count7 > count4) && (count7 > count5) && (count7 > count6) && (count7 > count8)) {
+    for(i=0; i<=4; i++){
+      if (validacao[i] == solucaoG[i]){
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 300);
+        $('.mantem span').eq(i).css('opacity', '0').animate({
+          "opacity": 0
+        }, 300);
+      }
+    }
+  }
+
+  if((count8 > count1) && (count8 > count2) && (count8 > count3) && (count8 > count4) && (count8 > count5) && (count8 > count6) && (count8 > count7)) {
+    for(i=0; i<=4; i++){
+      if (validacao[i] == solucaoH[i]){
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 300);
+        $('.mantem span').eq(i).css('opacity', '0').animate({
+          "opacity": 0
+        }, 300);
       }
     }
   }
