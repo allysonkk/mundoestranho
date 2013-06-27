@@ -223,7 +223,8 @@ $(document).ready(function() {
     imageStartAngle = $(imageBeingRotated).data('currentRotation');
 
     // Set up an event handler to rotate the image as the mouse is moved
-    $('#lighttable a').bind('vmousemove', function(event) {
+    $( document ).on( "vmousemove", "#lighttable a", function(event) {
+    //$('#lighttable a').bind('vmousemove', function(event) {
       //var imageCentre = getImageCentre( imageBeingRotated );
 
       var mouseXFromCentre = event.pageX - imageCentre[0];
