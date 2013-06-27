@@ -309,7 +309,9 @@ function mostra_certo(){
   if(count > 1){
     for(i=0; i<=4; i++){
       if (validacao[i] == solucaoA[i]){
-        $('.mostra_certo span').eq(i).css('display', 'block').fadeOut('fast');
+        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+          "opacity": 0
+        }, 500);
       }
     }
   }

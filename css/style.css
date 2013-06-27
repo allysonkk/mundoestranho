@@ -167,7 +167,7 @@ ul { list-style: none; }
 
 .mostra_certo span {
   background-image: url(../img/pisca.png);
-  display: none;
+  opacity: 0;
   height: 113px;
   position: absolute;
 }
