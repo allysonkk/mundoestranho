@@ -122,50 +122,29 @@ function fix_position(elemento, current_rotation, indice){
 
 $(document).ready(function() {
 
-  $('.links li').bind('vclick', function(event) {
+  $('.links li').bind('click', function(event) {
     $('.texto li').css('display', 'none');
     //$('.texto li:eq('+$(this).index()+')').css('display', 'block');
     $('.historia'+$(this).index()).css('display', 'block').animate({ "opacity": 1 }, 300);
     return false;
   });
 
-  $('.solucao li').bind('vclick', function(event) {
+  $('.solucao li').bind('click', function(event) {
     $('.solucao li').css('display', 'none').animate({ "opacity": 0 }, 500);
     embaralha();
   });
 
-  $('.texto li').bind('vclick', function(event) {
+  $('.texto li').bind('click', function(event) {
     $('.texto li').css('display', 'none').animate({ "opacity": 0 }, 500);
   });
 
-  $('.embaralhar').click(function() {
+  $('.embaralhar').bind('click', function() {
     audio(0);
     embaralha();
     return false; 
   });
 
-
-  function embaralha(){
-    $('#lighttable img').each( function(index) {
-
-      var angle = Math.floor((Math.random() * 300) + 120); //alterar com rand aqui para embaralhar
-      $(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
-      $(this).css( '-moz-transform', 'rotate(' + angle + 'deg)' );   
-      $(this).css( '-webkit-transform', 'rotate(' + angle + 'deg)' );
-      $(this).css( '-o-transform', 'rotate(' + angle + 'deg)' );
-      $(this).data('currentRotation', angle * Math.PI / 180 );
-
-      var rotation = angle * Math.PI / 180;
-
-      fix_position($(this), rotation, index);
-
-    });
-  }
-
-  embaralha();
-
   $( document ).on( "vmouseup", "#lighttable a", function(event) {
-  //$('#lighttable a').bind('vmouseup', function(event) {
     // Exit if we're not rotating an image
     if ( !imageBeingRotated ) return;
 
@@ -189,7 +168,6 @@ $(document).ready(function() {
   });
 
   $( document ).on( "vmousedown", "#lighttable a", function(event) {
-  //$('#lighttable a').bind('vmousedown', function(event) {
     // Track the image that we're going to rotate
     var img = $(this).html();
 
@@ -208,7 +186,6 @@ $(document).ready(function() {
 
     // Set up an event handler to rotate the image as the mouse is moved
     $( document ).on( "vmousemove", "#lighttable a", function(event) {
-    //$('#lighttable a').bind('vmousemove', function(event) {
       //var imageCentre = getImageCentre( imageBeingRotated );
 
       var mouseXFromCentre = event.pageX - imageCentre[0];
@@ -231,6 +208,25 @@ $(document).ready(function() {
 
     return false;
   });
+
+  function embaralha(){
+    $('#lighttable img').each( function(index) {
+
+      var angle = Math.floor((Math.random() * 300) + 120); //alterar com rand aqui para embaralhar
+      $(this).css( 'transform', 'rotate(' + angle + 'deg)' );   
+      $(this).css( '-moz-transform', 'rotate(' + angle + 'deg)' );   
+      $(this).css( '-webkit-transform', 'rotate(' + angle + 'deg)' );
+      $(this).css( '-o-transform', 'rotate(' + angle + 'deg)' );
+      $(this).data('currentRotation', angle * Math.PI / 180 );
+
+      var rotation = angle * Math.PI / 180;
+
+      fix_position($(this), rotation, index);
+
+    });
+  }
+
+  embaralha();
 
 });
 
