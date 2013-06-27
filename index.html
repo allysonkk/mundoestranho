@@ -156,10 +156,6 @@ $(document).ready(function() {
     embaralha();
   });
 
-  $('.embaralhar').click(function(){
-     audio(5);
-  });
-
   function embaralha(){
     $('#lighttable img').each( function(index) {
 
@@ -308,10 +304,11 @@ function mostra_certo(){
   if(count > 1){
     for(i=0; i<=4; i++){
       if (validacao[i] == solucaoA[i]){
-        $('.mostra_certo span').eq(i).css('display', 'block');
+        $('.mostra_certo span').eq(i).css('display', 'block').fadeOut('fast');
       }
     }
   }
+  count = 0;
 }
 
 function audio(song){
@@ -398,11 +395,11 @@ function getImageCentre( image ) {
     <div class="centro"></div>
     <div class="mascara"></div>
     <div class="mostra_certo">
-      <span>ok</span>
-      <span>ok</span>
-      <span>ok</span>
-      <span>ok</span>
-      <span>ok</span>
+      <span class="pisca1"></span>
+      <span class="pisca2"></span>
+      <span class="pisca3"></span>
+      <span class="pisca4"></span>
+      <span class="pisca5"></span>
     </div>
     <a href="#" class="click01">0</a>
     <a href="#" class="click02">1</a>

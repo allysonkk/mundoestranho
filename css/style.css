@@ -161,15 +161,49 @@ ul { list-style: none; }
 
 .mostra_certo {
   position: absolute;
-  top: 12px;
-  width: 50px;
-  height: 400px;
-  left: 436px;
+  top: 5px;
+  left: 280px;
 }
 
 .mostra_certo span {
-  float: left;
-  width: 30px;
-  margin-top: 58px;
+  background-image: url(../img/pisca.png);
   display: none;
+  height: 113px;
+  position: absolute;
 }
+
+.mostra_certo .pisca1 {
+  width: 330px;
+}
+
+.mostra_certo .pisca2 {
+  margin-left: 33px;
+  width: 265px;
+  background-position: 0px -120px;
+  top: 83px;
+}
+
+.mostra_certo .pisca3 {
+  margin-left: 60px;
+  width: 176px;
+  background-position: 0 -211px;
+  top: 172px;
+  height: 100px;
+}
+
+.mostra_certo .pisca4 {
+  margin-left: 99px;
+  width: 134px;
+  background-position: 0px -354px;
+  top: 263px;
+  height: 95px;
+}
+
+.mostra_certo .pisca5 {
+  margin-left: 131px;
+  width: 67px;
+  background-position: 0 -461px;
+  top: 352px;
+  height: 85px;
+}
+
