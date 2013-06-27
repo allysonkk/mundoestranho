@@ -163,10 +163,10 @@ ul { list-style: none; }
   top: 36px;
 }
 
-.mostra_certo {
+.mostra_certo, .mantem {
   position: absolute;
   top: 5px;
-  left: 280px;
+  left: 278px;
 }
 
 .mostra_certo span {
@@ -176,38 +176,45 @@ ul { list-style: none; }
   position: absolute;
 }
 
-.mostra_certo .pisca1 {
-  width: 330px;
+.mantem span {
+  background-image: url(../img/mantem.png);
+  opacity: 1;
+  height: 113px;
+  position: absolute;
 }
 
-.mostra_certo .pisca2 {
+.mostra_certo .pisca1, .mantem .mantem1 {
+  width: 335px;
+}
+
+.mostra_certo .pisca2, .mantem .mantem2 {
   margin-left: 33px;
-  width: 265px;
+  width: 270px;
   background-position: 0px -120px;
   top: 83px;
 }
 
-.mostra_certo .pisca3 {
+.mostra_certo .pisca3, .mantem .mantem3 {
   margin-left: 66px;
-  width: 198px;
+  width: 202px;
   background-position: 0 -238px;
-  top: 171px;
-  height: 105px;
+  top: 169px;
+  height: 107px;
 }
 
-.mostra_certo .pisca4 {
+.mostra_certo .pisca4, .mantem .mantem4 {
   margin-left: 99px;
   width: 134px;
   background-position: 0px -354px;
-  top: 263px;
-  height: 95px;
+  top: 258px;
+  height: 99px;
 }
 
-.mostra_certo .pisca5 {
-  margin-left: 131px;
+.mostra_certo .pisca5, .mantem .mantem5 {
+  margin-left: 133px;
   width: 67px;
   background-position: 0 -461px;
-  top: 352px;
-  height: 85px;
+  top: 345px;
+  height: 94px;
 }
 
