@@ -140,16 +140,16 @@ $(document).ready(function() {
   $('.links li').bind('vclick', function(event) {
     $('.texto li').css('display', 'none');
     //$('.texto li:eq('+$(this).index()+')').css('display', 'block');
-    $('.historia'+$(this).index()).css('display', 'block');
+    $('.historia'+$(this).index()).css('display', 'block').animate({ "opacity": 1 }, 300);
     return false;
   });
 
   $('.solucao li').bind('vclick', function(event) {
-    $('.solucao li').css('display', 'none');
+    $('.solucao li').css('display', 'none').animate({ "opacity": 0 }, 500);
   });
 
   $('.texto li').bind('vclick', function(event) {
-    $('.texto li').css('display', 'none');
+    $('.texto li').css('display', 'none').animate({ "opacity": 0 }, 500);
   });
 
   $('.embaralhar').bind('vclick', function(event) {
@@ -277,28 +277,28 @@ Array.prototype.compare = function (array) {
 
 function solucao(){
   if (validacao.compare(solucaoA)){
-    $('.solucao0').css('display', 'block');
+    $('.solucao2').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
   else if(validacao.compare(solucaoB)){
-    $('.solucao1').css('display', 'block');
+    $('.solucao5').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
   else if(validacao.compare(solucaoC)){
-    $('.solucao2').css('display', 'block');
+    $('.solucao1').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
   else if(validacao.compare(solucaoD)){
-    $('.solucao3').css('display', 'block');
+    $('.solucao6').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
   else if(validacao.compare(solucaoE)){
-    $('.solucao4').css('display', 'block');
+    $('.solucao7').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
   else if(validacao.compare(solucaoF)){
-    $('.solucao5').css('display', 'block');
+    $('.solucao4').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
   else if(validacao.compare(solucaoG)){
-    $('.solucao6').css('display', 'block');
+    $('.solucao0').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
   else if(validacao.compare(solucaoH)){
-    $('.solucao7').css('display', 'block');
+    $('.solucao3').css('display', 'block').animate({ "opacity": 1 }, 500);
   }
 }
 
@@ -317,8 +317,119 @@ function mostra_certo(){
         }, 300);
       }
     }
+  } else {
+    count = 0;
+    for(i=0; i<=4; i++){
+      if (validacao[i] == solucaoB[i]){
+        count++;
+      }
+    }
+    if(count > 1){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoB[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else {
+      count = 0;
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoC[i]){
+          count++;
+        }
+      }
+      if(count > 1){
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoC[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+          }
+        }
+      } else {
+        count = 0;
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoD[i]){
+            count++;
+          }
+        }
+        if(count > 1){
+          for(i=0; i<=4; i++){
+            if (validacao[i] == solucaoD[i]){
+              $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+                "opacity": 0
+              }, 300);
+            }
+          }
+        } else {
+          count = 0;
+          for(i=0; i<=4; i++){
+            if (validacao[i] == solucaoE[i]){
+              count++;
+            }
+          }
+          if(count > 1){
+            for(i=0; i<=4; i++){
+              if (validacao[i] == solucaoE[i]){
+                $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+                  "opacity": 0
+                }, 300);
+              }
+            }
+          } else {
+            count = 0;
+            for(i=0; i<=4; i++){
+              if (validacao[i] == solucaoF[i]){
+                count++;
+              }
+            }
+            if(count > 1){
+              for(i=0; i<=4; i++){
+                if (validacao[i] == solucaoF[i]){
+                  $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+                    "opacity": 0
+                  }, 300);
+                }
+              }
+            } else {
+              count = 0;
+              for(i=0; i<=4; i++){
+                if (validacao[i] == solucaoG[i]){
+                  count++;
+                }
+              }
+              if(count > 1){
+                for(i=0; i<=4; i++){
+                  if (validacao[i] == solucaoG[i]){
+                    $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+                      "opacity": 0
+                    }, 300);
+                  }
+                }
+              } else {
+                count = 0;
+                for(i=0; i<=4; i++){
+                  if (validacao[i] == solucaoH[i]){
+                    count++;
+                  }
+                }
+                if(count > 1){
+                  for(i=0; i<=4; i++){
+                    if (validacao[i] == solucaoH[i]){
+                      $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+                        "opacity": 0
+                      }, 300);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  count = 0;
 }
 
 function audio(song){
