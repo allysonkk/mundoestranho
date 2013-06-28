@@ -303,19 +303,21 @@ function mostra_certo(){
   console.log("H = "+count8);
 
   if((count1 > count2) && (count1 > count3) && (count1 > count4) && (count1 > count5) && (count1 > count6) && (count1 > count7) && (count1 > count8)) {
-    for(i=0; i<=4; i++){
-      if (validacao[i] == solucaoA[i]){
-        $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-          "opacity": 0
-        }, 300);
-        $('.mantem span').eq(i).css('opacity', '0').animate({
-          "opacity": 0
-        }, 300);
+    if(som_acerto == 0) {
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoA[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
       }
+      som_acerto++;
+      aceso = 1;
+      console.log("acende A");
     }
-    som_acerto++;
-    aceso = 1;
-    console.log("acende A");
   }
 
   if((count2 > count1) && (count2 > count3) && (count2 > count4) && (count2 > count5) && (count2 > count6) && (count2 > count7) && (count2 > count8)) {
@@ -452,101 +454,133 @@ function mostra_certo(){
     || (count6 == count7) || (count6 == count8) || (count7 == count8)) {
 
     if(aceso == 1){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoA[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count1 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoA[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     } else if (aceso == 2){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoB[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count2 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoB[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     } else if (aceso == 3){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoC[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count3 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoC[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     } else if (aceso == 4){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoD[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count4 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoD[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     } else if (aceso == 5){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoE[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count5 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoE[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     } else if (aceso == 6){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoF[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count6 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoF[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     } else if (aceso == 7){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoG[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count7 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoG[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     } else if (aceso == 8){
-      for(i=0; i<=4; i++){
-        if (validacao[i] == solucaoH[i]){
-          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
-            "opacity": 0
-          }, 300);
-          $('.mantem span').eq(i).css('opacity', '0').animate({
-            "opacity": 0
-          }, 300);
+      if (count8 > 1) {
+        for(i=0; i<=4; i++){
+          if (validacao[i] == solucaoH[i]){
+            $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+              "opacity": 0
+            }, 300);
+            $('.mantem span').eq(i).css('opacity', '0').animate({
+              "opacity": 0
+            }, 300);
+          }
         }
+        som_acerto++;
+      } else {
+        $('.mantem span').css('opacity', '1');
       }
-      som_acerto++;
     }
   }
 
