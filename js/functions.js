@@ -2,7 +2,7 @@ var rotateAngle = 0;            // The return for verification
 var imageBeingRotated = false;  // The DOM image currently being rotated (if any)
 var mouseStartAngle = false;    // The angle of the mouse relative to the image centre at the start of the rotation
 var imageStartAngle = false;    // The rotation angle of the image at the start of the rotation
-var aceso = 1;
+var aceso = 0;
 
 var validacao = new Array();
 var solucaoA = new Array(8, 6, 2, 7, 8); //new Array(8, 2, 6, 1, 5);
@@ -151,6 +151,7 @@ $(document).ready(function() {
     //audio(0);
     $('.mantem span').css('opacity', '1');
     embaralha();
+    aceso = 0;
     return false; 
   });
 
@@ -522,6 +523,7 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     } else if (aceso == 2){
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoB[i]){
@@ -533,6 +535,7 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     } else if (aceso == 3){
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoC[i]){
@@ -544,6 +547,7 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     } else if (aceso == 4){
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoD[i]){
@@ -555,6 +559,7 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     } else if (aceso == 5){
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoE[i]){
@@ -566,6 +571,7 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     } else if (aceso == 6){
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoF[i]){
@@ -577,6 +583,7 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     } else if (aceso == 7){
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoG[i]){
@@ -588,6 +595,7 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     } else if (aceso == 8){
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoH[i]){
@@ -599,8 +607,8 @@ function mostra_certo(){
           }, 300);
         }
       }
+      som_acerto++;
     }
-    som_acerto++;
   }
 
   console.log("aceso = "+aceso);
