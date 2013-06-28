@@ -2,6 +2,7 @@ var rotateAngle = 0;            // The return for verification
 var imageBeingRotated = false;  // The DOM image currently being rotated (if any)
 var mouseStartAngle = false;    // The angle of the mouse relative to the image centre at the start of the rotation
 var imageStartAngle = false;    // The rotation angle of the image at the start of the rotation
+var aceso = 1;
 
 var validacao = new Array();
 var solucaoA = new Array(8, 6, 2, 7, 8); //new Array(8, 2, 6, 1, 5);
@@ -352,6 +353,15 @@ function mostra_certo(){
     }
   }
 
+  console.log("A = "+count1);
+  console.log("B = "+count2);
+  console.log("C = "+count3);
+  console.log("D = "+count4);
+  console.log("E = "+count5);
+  console.log("F = "+count6);
+  console.log("G = "+count7);
+  console.log("H = "+count8);
+
   if((count1 > count2) && (count1 > count3) && (count1 > count4) && (count1 > count5) && (count1 > count6) && (count1 > count7) && (count1 > count8)) {
     for(i=0; i<=4; i++){
       if (validacao[i] == solucaoA[i]){
@@ -364,6 +374,8 @@ function mostra_certo(){
       }
     }
     som_acerto++;
+    aceso = 1;
+    console.log("acende A");
   }
 
   if((count2 > count1) && (count2 > count3) && (count2 > count4) && (count2 > count5) && (count2 > count6) && (count2 > count7) && (count2 > count8)) {
@@ -379,6 +391,8 @@ function mostra_certo(){
         }
       }
       som_acerto++;
+      aceso = 2;
+      console.log("acende B");
     }
   }
 
@@ -395,6 +409,8 @@ function mostra_certo(){
         }
       }
       som_acerto++;
+      aceso = 3;
+      console.log("acende C");
     }
   }
 
@@ -411,6 +427,8 @@ function mostra_certo(){
         }
       }
       som_acerto++;
+      aceso = 4;
+      console.log("acende D");
     }
   }
 
@@ -427,6 +445,8 @@ function mostra_certo(){
         }
       }
       som_acerto++;
+      aceso = 5;
+      console.log("acende E");
     }
   }
 
@@ -443,6 +463,8 @@ function mostra_certo(){
         }
       }
       som_acerto++;
+      aceso = 6;
+      console.log("acende F");
     }
   }
 
@@ -459,11 +481,13 @@ function mostra_certo(){
         }
       }
       som_acerto++;
+      aceso = 7;
+      console.log("acende G");
     }
   }
 
   if((count8 > count1) && (count8 > count2) && (count8 > count3) && (count8 > count4) && (count8 > count5) && (count8 > count6) && (count8 > count7)) {
-    if(som_acerto == 0) {
+    //if(som_acerto == 0) {
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoH[i]){
           $('.mostra_certo span').eq(i).css('opacity', '1').animate({
@@ -475,10 +499,114 @@ function mostra_certo(){
         }
       }
       som_acerto++;
-    }
+      aceso = 8;
+      console.log("acende H");
+    //}
   }
 
+  if((count1 == count2) || (count1 == count3) || (count1 == count4) || (count1 == count5) || (count1 == count6) 
+    || (count1 == count7) || (count1 == count8) || (count2 == count3) || (count2 == count4) || (count2 == count5) 
+    || (count2 == count6) || (count2 == count7) || (count2 == count8) || (count3 == count4) || (count3 == count5) 
+    || (count3 == count6) || (count3 == count7) || (count3 == count8) || (count4 == count5) || (count4 == count6) 
+    || (count4 == count7) || (count4 == count8) || (count5 == count6) || (count5 == count7) || (count5 == count8) 
+    || (count6 == count7) || (count6 == count8) || (count7 == count8)) {
+
+    if(aceso == 1){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoA[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else if (aceso == 2){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoB[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else if (aceso == 3){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoC[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else if (aceso == 4){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoD[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else if (aceso == 5){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoE[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else if (aceso == 6){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoF[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else if (aceso == 7){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoG[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    } else if (aceso == 8){
+      for(i=0; i<=4; i++){
+        if (validacao[i] == solucaoH[i]){
+          $('.mostra_certo span').eq(i).css('opacity', '1').animate({
+            "opacity": 0
+          }, 300);
+          $('.mantem span').eq(i).css('opacity', '0').animate({
+            "opacity": 0
+          }, 300);
+        }
+      }
+    }
+    som_acerto++;
+  }
+
+  console.log("aceso = "+aceso);
+
   if(som_acerto > 0) {
+    $('.mantem span').css('opacity', '1');
     audio(5);
     som_acerto = 0;
   }
