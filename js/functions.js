@@ -3,6 +3,9 @@ var imageBeingRotated = false;  // The DOM image currently being rotated (if any
 var mouseStartAngle = false;    // The angle of the mouse relative to the image centre at the start of the rotation
 var imageStartAngle = false;    // The rotation angle of the image at the start of the rotation
 var aceso = 0;
+var pos_min = new Array(1.1, 1.9, 2.7, 3.5, 4.3, 5.1, 5.9, 6.7);
+var pos_max = new Array(1.9, 2.7, 3.5, 4.3, 5.1, 5.9, 6.7, 7.5);
+var setup_position = new Array(90,135,180,225,270,315,360,405);
 
 var validacao = new Array();
 var solucaoA = new Array(8, 6, 2, 7, 8); //new Array(8, 2, 6, 1, 5);
@@ -13,113 +16,6 @@ var solucaoE = new Array(4, 2, 8, 1, 4); //new Array(4, 6, 8, 7, 4);
 var solucaoF = new Array(5, 1, 6, 2, 6); //new Array(3, 7, 2, 6, 2);
 var solucaoG = new Array(6, 8, 7, 3, 1); //new Array(2, 8, 1, 5, 7);
 var solucaoH = new Array(7, 7, 1, 4, 7); //new Array(6, 1, 7, 4, 1);
-
-function fix_position(elemento, current_rotation, indice){
-  var num = Math.round(current_rotation * 10) / 10;
-  var elemento_index = indice;
-  if((num > 1.1) && (num <= 1.9)){
-    elemento.css({
-      'transform': 'rotate(' + 90 + 'deg)',
-      '-moz-transform': 'rotate(' + 90 + 'deg)',
-      '-webkit-transform': 'rotate(' + 90 + 'deg)',
-      '-o-transform': 'rotate(' + 90 + 'deg)'
-    });
-    elemento.data('currentRotation', 90 * Math.PI / 180 );
-    validacao[elemento_index] = 1;
-  }
-  else if((num > 1.9) && (num <= 2.7)){
-    elemento.css({
-      'transform': 'rotate(' + 135 + 'deg)',
-      '-moz-transform': 'rotate(' + 135 + 'deg)',
-      '-webkit-transform': 'rotate(' + 135 + 'deg)',
-      '-o-transform': 'rotate(' + 135 + 'deg)'
-    });
-    elemento.data('currentRotation', 135 * Math.PI / 180 );
-    validacao[elemento_index] = 2;
-  }
-  else if((num > 2.7) && (num <= 3.5)){
-    elemento.css({
-      'transform': 'rotate(' + 180 + 'deg)',
-      '-moz-transform': 'rotate(' + 180 + 'deg)',
-      '-webkit-transform': 'rotate(' + 180 + 'deg)',
-      '-o-transform': 'rotate(' + 180 + 'deg)'
-    });
-    elemento.data('currentRotation', 180 * Math.PI / 180 );
-    validacao[elemento_index] = 3;
-  }
-  else if((num > 3.5) && (num <= 4.3)){
-    elemento.css({
-      'transform': 'rotate(' + 225 + 'deg)',
-      '-moz-transform': 'rotate(' + 225 + 'deg)',
-      '-webkit-transform': 'rotate(' + 225 + 'deg)',
-      '-o-transform': 'rotate(' + 225 + 'deg)'
-    });
-    elemento.data('currentRotation', 225 * Math.PI / 180 );
-    validacao[elemento_index] = 4;
-  }
-  else if((num > 4.3) && (num <= 5.1)){
-    elemento.css({
-      'transform': 'rotate(' + 270 + 'deg)',
-      '-moz-transform': 'rotate(' + 270 + 'deg)',
-      '-webkit-transform': 'rotate(' + 270 + 'deg)',
-      '-o-transform': 'rotate(' + 270 + 'deg)'
-    });
-    elemento.data('currentRotation', 270 * Math.PI / 180 );
-    validacao[elemento_index] = 5;
-  }
-  else if((num > 5.1) && (num <= 5.8)){
-    elemento.css({
-      'transform': 'rotate(' + 315 + 'deg)',
-      '-moz-transform': 'rotate(' + 315 + 'deg)',
-      '-webkit-transform': 'rotate(' + 315 + 'deg)',
-      '-o-transform': 'rotate(' + 315 + 'deg)'
-    });
-    elemento.data('currentRotation', 315 * Math.PI / 180 );
-    validacao[elemento_index] = 6;
-  }
-  else if((num > 5.8) && (num <= 6.6)){
-    elemento.css({
-      'transform': 'rotate(' + 360 + 'deg)',
-      '-moz-transform': 'rotate(' + 360 + 'deg)',
-      '-webkit-transform': 'rotate(' + 360 + 'deg)',
-      '-o-transform': 'rotate(' + 360 + 'deg)'
-    });
-    elemento.data('currentRotation', 360 * Math.PI / 180 );
-    validacao[elemento_index] = 7;
-  }
-  else if((num > 6.6) && (num <= 7.4)){
-    elemento.css({
-      'transform': 'rotate(' + 405 + 'deg)',
-      '-moz-transform': 'rotate(' + 405 + 'deg)',
-      '-webkit-transform': 'rotate(' + 405 + 'deg)',
-      '-o-transform': 'rotate(' + 405 + 'deg)'
-    });
-    elemento.data('currentRotation', 405 * Math.PI / 180 );
-    validacao[elemento_index] = 8;
-  }
-  else {
-    if (validacao[elemento_index] == 1) {
-      elemento.css({
-        'transform': 'rotate(' + 405 + 'deg)',
-        '-moz-transform': 'rotate(' + 405 + 'deg)',
-        '-webkit-transform': 'rotate(' + 405 + 'deg)',
-        '-o-transform': 'rotate(' + 405 + 'deg)'
-      });
-      elemento.data('currentRotation', 405 * Math.PI / 180 );
-      validacao[elemento_index] = 8;
-    } else {
-      elemento.css({
-        'transform': 'rotate(' + 90 + 'deg)',
-        '-moz-transform': 'rotate(' + 90 + 'deg)',
-        '-webkit-transform': 'rotate(' + 90 + 'deg)',
-        '-o-transform': 'rotate(' + 90 + 'deg)'
-      });
-      elemento.data('currentRotation', 90 * Math.PI / 180 );
-      validacao[elemento_index] = 1;
-    }
-  }
-  solucao();
-}
 
 $(document).ready(function() {
 
@@ -132,15 +28,12 @@ $(document).ready(function() {
 
   $('.links li').bind('click', function(event) {
     $('.texto li').css('display', 'none');
-    //$('.texto li:eq('+$(this).index()+')').css('display', 'block');
     $('.historia'+$(this).index()).css('display', 'block').animate({ "opacity": 1 }, 300);
     return false;
   });
 
   $('.solucao li').bind('click', function(event) {
     $('.solucao li').css('display', 'none').animate({ "opacity": 0 }, 500);
-    //$('.mantem span').css('opacity', '1');
-    //embaralha();
   });
 
   $('.texto li').bind('click', function(event) {
@@ -148,7 +41,6 @@ $(document).ready(function() {
   });
 
   $('.embaralhar').bind('click', function() {
-    //audio(0);
     $('.mantem span').css('opacity', '1');
     embaralha();
     aceso = 0;
@@ -239,6 +131,51 @@ $(document).ready(function() {
   embaralha();
 
 });
+
+function fix_position(elemento, current_rotation, indice){
+  var num = Math.round(current_rotation * 10) / 10;
+  var elemento_index = indice;
+  var check_position = 0;
+
+  for (i=0; i<=7; i++) {
+    if ((num > pos_min[i]) && (num <= pos_max[i])) {
+      elemento.css({
+        'transform': 'rotate(' + setup_position[i] + 'deg)',
+        '-moz-transform': 'rotate(' + setup_position[i] + 'deg)',
+        '-webkit-transform': 'rotate(' + setup_position[i] + 'deg)',
+        '-o-transform': 'rotate(' + setup_position[i] + 'deg)'
+      });
+      elemento.data('currentRotation', setup_position[i] * Math.PI / 180 );
+      validacao[elemento_index] = i + 1;
+
+      check_position++;
+    }
+  }
+
+  if(check_position == 0){
+    if (validacao[elemento_index] == 1) {
+      elemento.css({
+        'transform': 'rotate(' + setup_position[7] + 'deg)',
+        '-moz-transform': 'rotate(' + setup_position[7] + 'deg)',
+        '-webkit-transform': 'rotate(' + setup_position[7] + 'deg)',
+        '-o-transform': 'rotate(' + setup_position[7] + 'deg)'
+      });
+      elemento.data('currentRotation', setup_position[7] * Math.PI / 180 );
+      validacao[elemento_index] = 8;
+    } else {
+      elemento.css({
+        'transform': 'rotate(' + setup_position[0] + 'deg)',
+        '-moz-transform': 'rotate(' + setup_position[0] + 'deg)',
+        '-webkit-transform': 'rotate(' + setup_position[0] + 'deg)',
+        '-o-transform': 'rotate(' + setup_position[0] + 'deg)'
+      });
+      elemento.data('currentRotation', setup_position[0] * Math.PI / 180 );
+      validacao[elemento_index] = 1;
+    }
+  }
+
+  solucao();
+}
 
 // attach the .compare method to Array's prototype to call it on any array
 Array.prototype.compare = function (array) {
@@ -488,7 +425,7 @@ function mostra_certo(){
   }
 
   if((count8 > count1) && (count8 > count2) && (count8 > count3) && (count8 > count4) && (count8 > count5) && (count8 > count6) && (count8 > count7)) {
-    //if(som_acerto == 0) {
+    if(som_acerto == 0) {
       for(i=0; i<=4; i++){
         if (validacao[i] == solucaoH[i]){
           $('.mostra_certo span').eq(i).css('opacity', '1').animate({
@@ -502,7 +439,7 @@ function mostra_certo(){
       som_acerto++;
       aceso = 8;
       console.log("acende H");
-    //}
+    }
   }
 
   if((count1 == count2) || (count1 == count3) || (count1 == count4) || (count1 == count5) || (count1 == count6) 
