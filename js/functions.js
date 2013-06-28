@@ -25,6 +25,7 @@ $(document).ready(function() {
   $('body').append('<audio><source src="audio/rodela-4.mp3" type="audio/mp3" /></audio>');
   $('body').append('<audio><source src="audio/rodela-5.mp3" type="audio/mp3" /></audio>');
   $('body').append('<audio><source src="audio/acerto.mp3" type="audio/mp3" /></audio>'); 
+  $('body').append('<audio><source src="audio/botao-embaralhar.mp3" type="audio/mp3" /></audio>'); 
 
   $('.links li').bind('click', function(event) {
     $('.texto li').css('display', 'none');
@@ -44,6 +45,7 @@ $(document).ready(function() {
     $('.mantem span').css('opacity', '1');
     embaralha();
     aceso = 0;
+    audio(6);
     return false; 
   });
 
